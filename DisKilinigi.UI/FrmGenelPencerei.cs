@@ -11,101 +11,121 @@ using System.Windows.Forms;
 
 namespace DisKilinigi.UI
 {
-	public partial class FrmGenelPencerei : Form
-	{
+    public partial class FrmGenelPencerei : Form
+    {
 
-		List<Hasta> hastaListesi = new List<Hasta>();
-		List<Doktor> doktorListesi = new List<Doktor>();
-		List<Randevu> randevuListesi = new List<Randevu>();
+        List<Hasta> hastaListesi = new List<Hasta>();
+        List<Doktor> doktorListesi = new List<Doktor>();
+        List<Randevu> randevuListesi = new List<Randevu>();
 
-
-		public FrmGenelPencerei()
-		{
-			InitializeComponent();
-		}
-		private void FrmGenelPencerei_Load(object sender, EventArgs e)
-		{
-			DoktorlariDoldur();
-		}
+        List<string> islemYapilacakDisAdlari = new List<string>();
 
 
 
-		/// <summary>
-		/// Doktorları, kotor nesnesi ile Dolduran Fonksiyon
-		/// </summary>
-        private void DoktorlariDoldur()
+        public FrmGenelPencerei()
         {
-			doktorListesi.AddRange(new List<Doktor>()
-			{
-				new Doktor() {DoktorAdSoyad="Melike Memiş",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Batuhan Yazıcı",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Berkay Engin",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Ela Güler",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Zahide Uzun",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Yekta Büyükkaya",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-			});
-		}
-
-		/// <summary>
-		/// Hastaları hastlar listesine kaydeder
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-        private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
-		{
-			if (Validasyon())
-			{
-				// todo textbox1 => txtEkstraAciklama , Kangrubu textbox atılacak
-				hastaListesi.Add(
-					new Hasta
-					{
-						HastaAdSoyad = txtHastanaIlkMuayeneAdSoyad.Text,
-						KimlikNumarasi = mtxtHastaBilgileriKimlikNumarası.Text,
-						DogumTarihi = mtxtHastanaIlkMuayeneDoğumTarihi.Text,
-						TelefonNumarasi = mtxtHastanaIlkMuayeneTelefonNumarasi.Text,
-						EkstraAciklama = txtHastaSikayet.Text,
-						KanGrubu = ""
-					});
-			}
-			else
-			{
-				MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz");
-			}
-		}
-
-
-
-
-        private void btnRandevuOlustur_Click(object sender, EventArgs e)
+            InitializeComponent();
+        }
+        private void FrmGenelPencerei_Load(object sender, EventArgs e)
         {
-            //foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
-            //{
-            //    if (item.Checked)
-            //    {
-
-            //        randevuListesi.Add(new Randevu()
-            //        {
-            //            Hasta = cmboxHastaAdi.SelectedItem,
-            //            Doktor = cmboxIlgilenecekDoktor.SelectedItem,
-            //            RandevuTarihi = dtpRandevuTarihi.Value,
-            //            Islemler = cmboxYapılacakIslem.SelectedItem
-
-            //        });
-            //    }
-            //}
+            DoktorlariOlustur();
+            HastayaYapilacakIslemleriOlustur();
         }
 
+
+
+        /// <summary>
+        /// Doktorları, kotor nesnesi ile Dolduran Fonksiyon
+        /// </summary>
+        private void DoktorlariOlustur()
+        {
+            doktorListesi.AddRange(new List<Doktor>()
+            {
+                new Doktor() {DoktorAdSoyad="Melike Memiş",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+                new Doktor() {DoktorAdSoyad="Batuhan Yazıcı",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+                new Doktor() {DoktorAdSoyad="Berkay Engin",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+                new Doktor() {DoktorAdSoyad="Ela Güler",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+                new Doktor() {DoktorAdSoyad="Zahide Uzun",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+                new Doktor() {DoktorAdSoyad="Yekta Büyükkaya",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+            });
+        }
+
+        /// <summary>
+        /// Hastaları hastlar listesine kaydeder
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
+        {
+            if (Validasyon())
+            {
+                // todo textbox1 => txtEkstraAciklama , Kangrubu textbox atılacak
+                hastaListesi.Add(
+                    new Hasta
+                    {
+                        HastaAdSoyad = txtHastanaIlkMuayeneAdSoyad.Text,
+                        KimlikNumarasi = mtxtHastaBilgileriKimlikNumarası.Text,
+                        DogumTarihi = mtxtHastanaIlkMuayeneDoğumTarihi.Text,
+                        TelefonNumarasi = mtxtHastanaIlkMuayeneTelefonNumarasi.Text,
+                        EkstraAciklama = txtHastaSikayet.Text,
+                        KanGrubu = ""
+                    });
+            }
+            else
+            {
+                MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz");
+            }
+        }
+
+
+
+
+
+
+        /// <summary>
+        /// Randevu tipinde nesneler oluşturup randevu istesine atar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRandevuOlustur_Click(object sender, EventArgs e)
+        {
+            foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+            {
+                if (item.Checked)
+                {
+                    randevuListesi.Add(new Randevu()
+                    {
+                        Hasta = cmboxHastaAdi.SelectedItem as Hasta,
+                        Doktor = cmboxIlgilenecekDoktor.SelectedItem as Doktor,
+                        RandevuTarihi = dtpRandevuTarihi.Value,
+                        Islemler = cmboxYapılacakIslem.SelectedItem as List<Islem>,
+                        RandevuDurumu = true
+
+                    }) ;
+                    islemYapilacakDisAdlari.Add(item.Name.Substring(4, item.Name.Length - 4));
+                    for (int i = 0; i < islemYapilacakDisAdlari.Count; i++)
+                    {
+                        MessageBox.Show(islemYapilacakDisAdlari[i]);
+
+                    }
+
+                }
+            }
+        }
+
+
         private void btnOdemeAl_Click(object sender, EventArgs e)
-		{
+        {
             foreach (Randevu item in randevuListesi)
             {
-                if (!item.RandevuDurumu)
+                if (item.RandevuDurumu)
                 {
-                    ListViewItem li = new ListViewItem();
-                    li.SubItems.Add(item.Hasta.HastaAdSoyad);
+                    ListViewItem li = new ListViewItem(item.Hasta.HastaAdSoyad,0);
                     li.SubItems.Add(item.Hasta.KimlikNumarasi);
                     li.SubItems.Add(item.Hasta.DogumTarihi);
-                    //li.SubItems.Add(item.Islemler.IslemAdi);
+                    li.SubItems.AddRange(islemYapilacakDisAdlari.ToArray());
+
+                    li.SubItems.Add(item.Islemler);
                     //li.SubItems.Add(item.RandevuDurumu);
                     li.Tag = item;
                     lvHastaBilgileri.Items.Add(li);
@@ -117,10 +137,10 @@ namespace DisKilinigi.UI
             }
         }
 
-		private void btnHastaBilgileriİslemGorecekDisleriDuzenle_Click(object sender, EventArgs e)
-		{
+        private void btnHastaBilgileriİslemGorecekDisleriDuzenle_Click(object sender, EventArgs e)
+        {
 
-		}
+        }
 
         private void btnHastaBilgileriKaydet_Click(object sender, EventArgs e)
         {
@@ -165,24 +185,53 @@ namespace DisKilinigi.UI
         {
             return true;
         }
-		void HastayaYapilacakIslemleriOlustur()
+
+        /// <summary>
+        /// yapılacak işlemler combobaxını doldurur.
+        /// </summary>
+        public void HastayaYapilacakIslemleriOlustur()
         {
-	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "Dolgu", Tag = new Islem() { IslemAdi = "Dolgu", IslemUcreti = 100 } });
-	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "Kanal Tedavisi", Tag = new Islem() { IslemAdi = "Kanal Tedavisi", IslemUcreti = 500 } });
-	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "Diş Beyazlatma", Tag = new Islem() { IslemAdi = "Diş Beyazlatma", IslemUcreti = 100 } });
-	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "Diş Taşı Temizliği", Tag = new Islem() { IslemAdi = "Diş Taşı Temizliği", IslemUcreti = 100 } });
-	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "İmplant", Tag = new Islem() { IslemAdi = "İmplant", IslemUcreti = 100 } });
-	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "Diş Teli", Tag = new Islem() { IslemAdi = "Diş Teli", IslemUcreti = 100 } });
+            cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Dolgu", IslemUcreti = 100 });
+            cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Kanal Tedavisi", IslemUcreti = 500 });
+            cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Beyazlatma", IslemUcreti = 100 });
+            cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Taşı Temizliği", IslemUcreti = 100 });
+            cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "İmplant", IslemUcreti = 100 });
+            cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Teli", IslemUcreti = 100 });
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex==1)
+            if (tabControl1.SelectedIndex == 1)
             {
+                gbTedaviAtamasi.Refresh();
                 gbTedaviAtamasi.Enabled = true;
-				cmboxHastaAdi.Items.AddRange(hastaListesi.ToArray());
+
+                cmboxHastaAdi.Items.AddRange(hastaListesi.ToArray());
+                cmboxIlgilenecekDoktor.Items.AddRange(doktorListesi.ToArray());
             }
-            
+            if (tabControl1.SelectedIndex==2)
+            {
+                foreach (Randevu item in randevuListesi)
+                {
+                    if (!item.RandevuDurumu)
+                    {
+                        ListViewItem li = new ListViewItem();
+                        li.SubItems.Add(item.Hasta.HastaAdSoyad);
+                        li.SubItems.Add(item.Hasta.KimlikNumarasi);
+                        li.SubItems.Add(item.Hasta.DogumTarihi);
+                        //li.SubItems.Add(item.Islemler.IslemAdi);
+                        //li.SubItems.Add(item.RandevuDurumu);
+                        li.Tag = item;
+                        lvHastaBilgileri.Items.Add(li);
+
+                        //item.RandevuUcreti += item.Islemler.IslemUcreti;
+                        double toplamTutar = item.RandevuUcreti;
+                        MessageBox.Show("Ödeme bilgileriniz\n Toplam tutar: " + toplamTutar.ToString());
+                    }
+                }
+
+            }
+
         }
     }
 

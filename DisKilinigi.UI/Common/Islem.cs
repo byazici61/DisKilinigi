@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace DisKilinigi.UI.Common
 {
-    class Islem
+    public class Islem
     {
         public string IslemAdi { get; set; }
         public double IslemUcreti { get; set; }
+
+        public override string ToString()
+        {
+            return IslemAdi;
+        }
     }
 }

@@ -12,6 +12,11 @@ namespace DisKilinigi.UI.Common
         public string MezuniyetUniversitesi { get; set; }
         public string UzmanlikAlani { get; set; }
 
+        public override string ToString()
+        {
+            return DoktorAdSoyad;
+        }
+
 
     }
 }
