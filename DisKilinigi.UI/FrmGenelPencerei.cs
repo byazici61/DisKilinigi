@@ -18,8 +18,8 @@ namespace DisKilinigi.UI
         List<Doktor> doktorListesi = new List<Doktor>();
         List<Randevu> randevuListesi = new List<Randevu>();
 
-        List<string> islemYapilacakDisAdlari = new List<string>();
-
+        //List<string> islemYapilacakDisAdlari = new List<string>();
+        string islemYapilacakDisAdlari = "";
 
 
         public FrmGenelPencerei()
@@ -98,17 +98,13 @@ namespace DisKilinigi.UI
                         Hasta = cmboxHastaAdi.SelectedItem as Hasta,
                         Doktor = cmboxIlgilenecekDoktor.SelectedItem as Doktor,
                         RandevuTarihi = dtpRandevuTarihi.Value,
-                        Islemler = cmboxYapılacakIslem.SelectedItem as List<Islem>,
+                        Islemler = cmboxYapılacakIslem.SelectedItem as Islem,
                         RandevuDurumu = true,
 
 
                     }) ;
-                    islemYapilacakDisAdlari.Add(item.Name.Substring(4, item.Name.Length - 4));
-                    for (int i = 0; i < islemYapilacakDisAdlari.Count; i++)
-                    {
-                        MessageBox.Show(islemYapilacakDisAdlari[i]);
-
-                    }
+                    islemYapilacakDisAdlari+= item.Name.Substring(4, item.Name.Length - 4) +" ";
+                   
 
                 }
             }
@@ -117,25 +113,23 @@ namespace DisKilinigi.UI
 
         private void btnOdemeAl_Click(object sender, EventArgs e)
         {
-            foreach (Randevu item in randevuListesi)
-            {
-                if (item.RandevuDurumu)
-                {
-                    ListViewItem li = new ListViewItem(item.Hasta.HastaAdSoyad,0);
-                    li.SubItems.Add(item.Hasta.KimlikNumarasi);
-                    li.SubItems.Add(item.Hasta.DogumTarihi);
-                    li.SubItems.AddRange(islemYapilacakDisAdlari.ToArray());
+            //foreach (Randevu item in randevuListesi)
+            //{
+            //    if (item.RandevuDurumu)
+            //    {
+            //        ListViewItem li = new ListViewItem(item.Hasta.HastaAdSoyad, 0);
+            //        li.SubItems.Add(item.Hasta.KimlikNumarasi);
+            //        li.SubItems.Add(item.Hasta.DogumTarihi);
+            //        li.SubItems.AddRange(islemYapilacakDisAdlari.ToArray());
+            //        li.SubItems.Add(item.Islemler.ToString());
+            //        li.Tag = item;
+            //        lvHastaBilgileri.Items.Add(li);
 
-                    //li.SubItems.Add(item.Islemler);
-                    //li.SubItems.Add(item.RandevuDurumu);
-                    li.Tag = item;
-                    lvHastaBilgileri.Items.Add(li);
+            //        double toplamTutar = item.RandevuUcreti;
+            //        MessageBox.Show("Ödeme bilgileriniz\n Toplam tutar: " + toplamTutar.ToString());
+            //    }
 
-                    //item.RandevuUcreti += item.Islemler.IslemUcreti;
-                    double toplamTutar = item.RandevuUcreti;
-                    MessageBox.Show("Ödeme bilgileriniz\n Toplam tutar: " + toplamTutar.ToString());
-                }
-            }
+            //}
         }
 
         private void btnHastaBilgileriİslemGorecekDisleriDuzenle_Click(object sender, EventArgs e)
@@ -214,14 +208,15 @@ namespace DisKilinigi.UI
             {
                 foreach (Randevu item in randevuListesi)
                 {
-                    if (!item.RandevuDurumu)
+                    if (item.RandevuDurumu)
                     {
-                        ListViewItem li = new ListViewItem();
-                        li.SubItems.Add(item.Hasta.HastaAdSoyad);
+                        ListViewItem li = new ListViewItem(item.Hasta.HastaAdSoyad, 0);
                         li.SubItems.Add(item.Hasta.KimlikNumarasi);
                         li.SubItems.Add(item.Hasta.DogumTarihi);
-                        //li.SubItems.Add(item.Islemler.IslemAdi);
-                        //li.SubItems.Add(item.RandevuDurumu);
+                        li.SubItems.Add(islemYapilacakDisAdlari);
+                        li.SubItems.Add(item.Islemler.ToString());
+                        li.SubItems.Add(item.RandevuTarihi.ToString());
+                       
                         li.Tag = item;
                         lvHastaBilgileri.Items.Add(li);
 

@@ -17,7 +17,7 @@ namespace DisKilinigi.UI.Common
         public double RandevuUcreti { get; set; }
 
         public Hasta Hasta { get; set; }
-        public List<Islem> Islemler { get; set; } = new List<Islem>();
+        public Islem Islemler { get; set; } 
         
     }
 }
