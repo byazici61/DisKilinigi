@@ -21,6 +21,7 @@ namespace DisKilinigi.UI
 
         //List<string> islemYapilacakDisAdlari = new List<string>();
         string islemYapilacakDisAdlari = "";
+        double islemUcreti;
 
 
         public FrmGenelPencerei()
@@ -106,22 +107,39 @@ namespace DisKilinigi.UI
                 Hasta = cmboxHastaAdi.SelectedItem as Hasta,
                 Doktor = cmboxIlgilenecekDoktor.SelectedItem as Doktor,
                 RandevuTarihi = dtpRandevuTarihi.Value,
-                Islemler = cmboxYapılacakIslem.SelectedItem as Islem,
+                Islem = cmboxYapılacakIslem.SelectedItem as Islem,
                 RandevuDurumu = true,
                 Disler = dizi,
-                RandevuUcreti=100
-                // todo fiyat hesaplanacak
+                
+               
 
             });
 
         }
 
-
+        /// <summary>
+        /// Toplam islem ücretine göre ödeme alma fonksiyonu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOdemeAl_Click(object sender, EventArgs e)
         {
-            foreach (Randevu item in randevuListesi)
+            DialogResult dg = MessageBox.Show($"{islemUcreti} tutarındaki ödeme alınacak, bu işleme devam etmek istediğinize emin misiniz","",MessageBoxButtons.YesNoCancel);
+            if (dg==DialogResult.Yes)
             {
+                MessageBox.Show($"{islemUcreti} tutarındaki ücret alınmıştır.");
+                islemUcreti = 0;
+                
+                foreach (Randevu item in randevuListesi)
+                {
+                    if (listedeSecilenIndis.Tag==item)
+                    {
+                        item.RandevuDurumu = false;
 
+                    }
+                }
+
+                lvHastaBilgileri.Items.Remove(listedeSecilenIndis);
             }
         }
 
@@ -150,17 +168,20 @@ namespace DisKilinigi.UI
 
         private void clboxHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //foreach (CheckBox item in clboxHastaBilgileri.CheckedItems)
-            //{
-            //    txtHastaBilgileriHastaAdSoyad.Text = item.Tag.Randevu.Hasta.AdSoyad;
-            //    mtxtHastaBilgileriKimlikNumarası.Text = item.Tag.Randevu.Hasta.KimlikNumarasi;
-            //    mtxtHastaBilgileriDogumTarihi.Text = item.Tag.Randevu.Hasta.DogumTarihi;
-            //    mtxtHastaBilgileriTelefonNo.Text = item.Tag.Randevu.Hasta.TelefonNumarasi;
-            //    cmboxHastaBilgileriKanGrubu.DataSource = item.Tag.Randevu.Hasta.KanGrubu;
-            //    txtHastaBilgileriEkstraBilgiler.Text = item.Tag.Randevu.Hasta.EkstraAciklama;
-            //    cmboxHastaBilgileriGelisSebebi.DataSource = item.Tag.Randevu.Hasta.Islemler;
+            gbHastaBilgileriHastaBilgileri.Enabled = true;
+            foreach ( CheckBox item1 in clboxHastaBilgileri.CheckedItems)
+            {
+                Randevu item = item1.Tag as Randevu;
+                
+                txtHastaBilgileriHastaAdSoyad.Text = item.Hasta.HastaAdSoyad;
+                mtxtHastaBilgileriKimlikNumarası.Text = item.Hasta.KimlikNumarasi;
+                mtxtHastaBilgileriDogumTarihi.Text = item.Hasta.DogumTarihi;
+                mtxtHastaBilgileriTelefonNo.Text = item.Hasta.TelefonNumarasi;
+                cmboxHastaBilgileriKanGrubu.DataSource = item.Hasta.KanGrubu;
+                txtHastaBilgileriEkstraBilgiler.Text = item.Hasta.EkstraAciklama;
+                cmboxHastaBilgileriGelisSebebi.DataSource = item.Islem;
 
-            //}
+            }
 
         }
 
@@ -207,13 +228,32 @@ namespace DisKilinigi.UI
                         li.SubItems.Add(item.Hasta.KimlikNumarasi);
                         li.SubItems.Add(item.Hasta.DogumTarihi);
                         li.SubItems.Add(DiziyiStringeCevir(item.Disler));
-                        li.SubItems.Add(item.Islemler.ToString());
+                        li.SubItems.Add(item.Islem.ToString());
                         li.SubItems.Add(item.RandevuTarihi.ToString());
                         li.SubItems.Add(item.RandevuUcreti.ToString());
+                        
                         li.Tag = item;
                         lvHastaBilgileri.Items.Add(li);
 
                         //item.RandevuUcreti += item.Islemler.IslemUcreti;
+                    }
+                }
+
+            }
+
+            if (tabControl1.SelectedIndex==3)
+            {
+
+                foreach (Randevu item in randevuListesi)
+                {
+                    if (item.RandevuDurumu )
+                    {
+                        clboxHastaBilgileri.Controls.Add(new CheckBox() { Text = item.Hasta.HastaAdSoyad, Tag = item });
+
+
+                        //flpHizmetler.Controls.Add(new CheckBox() { Text = "Kola", Tag = new Hizmet() { UrunAdi = "Kola", UrunFiyati = 20 } }
+
+
                     }
                 }
 
@@ -252,33 +292,18 @@ namespace DisKilinigi.UI
 
         }
 
+        ListViewItem listedeSecilenIndis;
         private void lvHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-        }
-
-        private void lvHastaBilgileri_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {//todo
-
-            foreach (ListViewItem item in lvHastaBilgileri.CheckedItems)
+            if (lvHastaBilgileri.SelectedItems.Count > 0)
             {
-                MessageBox.Show(item.GetSubItemAt(item.Index,3).Text);
-                
+                listedeSecilenIndis  = lvHastaBilgileri.SelectedItems[0];
+                lblRandevuBİlgileri.Text = listedeSecilenIndis.Tag.ToString();
+                islemUcreti = double.Parse(listedeSecilenIndis.SubItems[6].Text);
+
             }
-
-
-
         }
 
-		private void lvHastaBilgileri_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            
-			if (lvHastaBilgileri.SelectedItems.Count > 0)
-			{
-				ListViewItem item = lvHastaBilgileri.SelectedItems[0];
-				lblRandevuBİlgileri.Text = item.SubItems[6].Text;
-			}
-		}
 	}
 
 }
