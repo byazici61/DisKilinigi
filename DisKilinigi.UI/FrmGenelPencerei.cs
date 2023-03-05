@@ -37,6 +37,10 @@ namespace DisKilinigi.UI
 
         private void btnOdemeAl_Click(object sender, EventArgs e)
         {
+            foreach (Randevu item in randevuListesi)
+            {
+                
+            }
 
         }
 
