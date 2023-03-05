@@ -23,12 +23,58 @@ namespace DisKilinigi.UI
 		{
 			InitializeComponent();
 		}
-
-
-		private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
+		private void FrmGenelPencerei_Load(object sender, EventArgs e)
 		{
-			Berkay();
+			DoktorlariDoldur();
 		}
+
+
+
+		/// <summary>
+		/// Doktorları, kotor nesnesi ile Dolduran Fonksiyon
+		/// </summary>
+        private void DoktorlariDoldur()
+        {
+			doktorListesi.AddRange(new List<Doktor>()
+			{
+				new Doktor() {DoktorAdSoyad="Melike Memiş",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Batuhan Yazıcı",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Berkay Engin",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Ela Güler",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Zahide Uzun",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Yekta Büyükkaya",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+			});
+		}
+
+		/// <summary>
+		/// Hastaları hastlar listesine kaydeder
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+        private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
+		{
+			if (Validasyon())
+			{
+				// todo textbox1 => txtEkstraAciklama , Kangrubu textbox atılacak
+				hastaListesi.Add(
+					new Hasta
+					{
+						HastaAdSoyad = txtHastanaIlkMuayeneAdSoyad.Text,
+						KimlikNumarasi = mtxtHastaBilgileriKimlikNumarası.Text,
+						DogumTarihi = mtxtHastanaIlkMuayeneDoğumTarihi.Text,
+						TelefonNumarasi = mtxtHastanaIlkMuayeneTelefonNumarasi.Text,
+						EkstraAciklama = txtHastaSikayet.Text,
+						KanGrubu = ""
+					});
+			}
+			else
+			{
+				MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz");
+			}
+		}
+
+
+
 
 		private void btnRandevuOlustur_Click(object sender, EventArgs e)
 		{
@@ -36,7 +82,8 @@ namespace DisKilinigi.UI
 			{
 				if (item.Checked)
 				{
-					randevuListesi.AddRange(new Randevu()
+
+					randevuListesi.Add(new Randevu()
 					{
 						Hasta = cmboxHastaAdi.SelectedItem,
 						Doktor = cmboxIlgilenecekDoktor.SelectedItem,
@@ -113,36 +160,7 @@ namespace DisKilinigi.UI
         {
 
         }
-        private void Berkay()
-        {
-	        doktorListesi.AddRange(new List<Doktor>()
-	        {
-		        new Doktor() {DoktorAdSoyad="Melike Memiş",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-		        new Doktor() {DoktorAdSoyad="Batuhan Yazıcı",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-		        new Doktor() {DoktorAdSoyad="Berkay Engin",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-		        new Doktor() {DoktorAdSoyad="Ela Güler",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-		        new Doktor() {DoktorAdSoyad="Zahide Uzun",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-		        new Doktor() {DoktorAdSoyad="Yekta Büyükkaya",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-	        });
-	        if (Validasyon())
-	        {
-		        // todo textbox1 => txtEkstraAciklama , Kangrubu textbox atılacak
-		        hastaListesi.Add(
-			        new Hasta
-			        {
-				        HastaAdSoyad = txtHastanaIlkMuayeneAdSoyad.Text,
-				        KimlikNumarasi = mtxtHastaBilgileriKimlikNumarası.Text,
-				        DogumTarihi = mtxtHastanaIlkMuayeneDoğumTarihi.Text,
-				        TelefonNumarasi = mtxtHastanaIlkMuayeneTelefonNumarasi.Text,
-				        EkstraAciklama = txtHastaSikayet.Text,
-				        KanGrubu = ""
-			        });
-	        }
-	        else
-	        {
-		        MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz");
-	        }
-        }
+
         private bool Validasyon()
         {
 	        throw new NotImplementedException();
@@ -157,10 +175,7 @@ namespace DisKilinigi.UI
 	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "Diş Teli", Tag = new Islem() { IslemAdi = "Diş Teli", IslemUcreti = 100 } });
         }
 
-		private void FrmGenelPencerei_Load(object sender, EventArgs e)
-		{
 
-		}
 	}
 
 }
