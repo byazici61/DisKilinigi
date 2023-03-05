@@ -439,6 +439,7 @@ namespace DisKilinigi.UI
             this.lvHastaBilgileri.TabIndex = 1;
             this.lvHastaBilgileri.UseCompatibleStateImageBehavior = false;
             this.lvHastaBilgileri.View = System.Windows.Forms.View.Details;
+            this.lvHastaBilgileri.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.lvHastaBilgileri_ItemChecked);
             this.lvHastaBilgileri.SelectedIndexChanged += new System.EventHandler(this.lvHastaBilgileri_SelectedIndexChanged);
             // 
             // columnHeader1

@@ -255,15 +255,24 @@ namespace DisKilinigi.UI
         {
             foreach (Randevu item in randevuListesi)
             {
-                if (lvHastaBilgileri.SelectedIndices.Contains(int.Parse(item.Hasta.KimlikNumarasi))){
-
-                    MessageBox.Show(item.Hasta.HastaAdSoyad);
-
-
-                }
+               
 
 
             }
+        }
+
+        private void lvHastaBilgileri_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+            foreach (Randevu item in randevuListesi)
+            {
+                //if (lvHastaBilgileri.Items.che)
+                //{
+
+                //}
+
+
+            }
+
         }
     }
 
