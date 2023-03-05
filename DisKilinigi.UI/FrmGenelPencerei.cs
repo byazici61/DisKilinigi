@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DisKilinigi.UI.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,12 @@ namespace DisKilinigi.UI
 {
     public partial class FrmGenelPencerei : Form
     {
+
+        List<Hasta> hastaListesi = new List<Hasta>();
+        List<Doktor> doktorListesi = new List<Doktor>();
+        List<Randevu> randevuListesi = new List<Randevu>();
+        
+
         public FrmGenelPencerei()
         {
             InitializeComponent();
