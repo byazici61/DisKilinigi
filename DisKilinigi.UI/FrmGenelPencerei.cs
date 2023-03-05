@@ -32,13 +32,43 @@ namespace DisKilinigi.UI
 
 		private void btnRandevuOlustur_Click(object sender, EventArgs e)
 		{
+			foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+			{
+				if (item.Checked)
+				{
+					randevuListesi.AddRange(new Randevu()
+					{
+						Hasta = cmboxHastaAdi.SelectedItem,
+						Doktor = cmboxIlgilenecekDoktor.SelectedItem,
+						RandevuTarihi = dtpRandevuTarihi.Value,
+						Islemler = cmboxYapılacakIslem.SelectedItem
 
+					});
+				}
+			}
 		}
 
 		private void btnOdemeAl_Click(object sender, EventArgs e)
 		{
+            foreach (Randevu item in randevuListesi)
+            {
+                if (!item.RandevuDurumu)
+                {
+                    ListViewItem li = new ListViewItem();
+                    li.SubItems.Add(item.Hasta.HastaAdSoyad);
+                    li.SubItems.Add(item.Hasta.KimlikNumarasi);
+                    li.SubItems.Add(item.Hasta.DogumTarihi);
+                    //li.SubItems.Add(item.Islemler.IslemAdi);
+                    //li.SubItems.Add(item.RandevuDurumu);
+                    li.Tag = item;
+                    lvHastaBilgileri.Items.Add(li);
 
-		}
+                    //item.RandevuUcreti += item.Islemler.IslemUcreti;
+                    double toplamTutar = item.RandevuUcreti;
+                    MessageBox.Show("Ödeme bilgileriniz\n Toplam tutar: " + toplamTutar.ToString());
+                }
+            }
+        }
 
 		private void btnHastaBilgileriİslemGorecekDisleriDuzenle_Click(object sender, EventArgs e)
 		{
