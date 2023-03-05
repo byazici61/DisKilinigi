@@ -168,22 +168,25 @@ namespace DisKilinigi.UI
 
         private void clboxHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gbHastaBilgileriHastaBilgileri.Enabled = true;
-            foreach ( CheckBox item1 in clboxHastaBilgileri.CheckedItems)
-            {
-                Randevu item = item1.Tag as Randevu;
-                
-                txtHastaBilgileriHastaAdSoyad.Text = item.Hasta.HastaAdSoyad;
-                mtxtHastaBilgileriKimlikNumarası.Text = item.Hasta.KimlikNumarasi;
-                mtxtHastaBilgileriDogumTarihi.Text = item.Hasta.DogumTarihi;
-                mtxtHastaBilgileriTelefonNo.Text = item.Hasta.TelefonNumarasi;
-                cmboxHastaBilgileriKanGrubu.DataSource = item.Hasta.KanGrubu;
-                txtHastaBilgileriEkstraBilgiler.Text = item.Hasta.EkstraAciklama;
-                cmboxHastaBilgileriGelisSebebi.DataSource = item.Islem;
+            //flplist.Enabled = true;
+    //        foreach ( CheckBox item1 in flplist.Controls)
+    //        {
+	   //         Randevu item = item1;
+				//if (item1.Checked)
+				//{
+				//	txtHastaBilgileriHastaAdSoyad.Text = item.Hasta.HastaAdSoyad;
+		  //          mtxtHastaBilgileriKimlikNumarası.Text = item.Hasta.KimlikNumarasi;
+		  //          mtxtHastaBilgileriDogumTarihi.Text = item.Hasta.DogumTarihi;
+		  //          mtxtHastaBilgileriTelefonNo.Text = item.Hasta.TelefonNumarasi;
+		  //          cmboxHastaBilgileriKanGrubu.DataSource = item.Hasta.KanGrubu;
+		  //          txtHastaBilgileriEkstraBilgiler.Text = item.Hasta.EkstraAciklama;
+		  //          cmboxHastaBilgileriGelisSebebi.DataSource = item.Islem;
+				//} 
 
-            }
+    //        }
 
-        }
+
+		}
 
         private void btnGecmisTümTedaviler_Click(object sender, EventArgs e)
         {
@@ -246,14 +249,10 @@ namespace DisKilinigi.UI
 
                 foreach (Randevu item in randevuListesi)
                 {
-                    if (item.RandevuDurumu )
+                    if (item.RandevuDurumu)
                     {
-                        clboxHastaBilgileri.Controls.Add(new CheckBox() { Text = item.Hasta.HastaAdSoyad, Tag = item });
-
-
-                        //flpHizmetler.Controls.Add(new CheckBox() { Text = "Kola", Tag = new Hizmet() { UrunAdi = "Kola", UrunFiyati = 20 } }
-
-
+	                    
+                        flplist.Controls.Add(new CheckBox() { Text = item.Hasta.HastaAdSoyad, Tag = item.Hasta });
                     }
                 }
 
@@ -304,6 +303,30 @@ namespace DisKilinigi.UI
             }
         }
 
+		private void btnHastaGetir_Click(object sender, EventArgs e)
+		{
+
+			flplist.Enabled = true;
+			foreach (CheckBox item in flplist.Controls)
+			{
+				if (item.Checked)
+				{
+					foreach (Randevu item1 in randevuListesi)
+					{
+						txtHastaBilgileriHastaAdSoyad.Text = item1.Hasta.ToString();
+						mtxtHastaBilgileriKimlikNumarası.Text = item1.Hasta.KimlikNumarasi;
+                        mtxtHastaBilgileriDogumTarihi.Text = item1.Hasta.DogumTarihi;
+                        mtxtHastaBilgileriTelefonNo.Text = item1.Hasta.TelefonNumarasi;
+                        //cmboxHastaBilgileriKanGrubu.DataSource = item1.Hasta.KanGrubu;
+                        txtHastaBilgileriEkstraBilgiler.Text = item1.Hasta.EkstraAciklama;
+                        //cmboxHastaBilgileriGelisSebebi.DataSource = item1.Islem;
+                    }
+
+
+				}
+
+			}
+		}
 	}
 
 }
