@@ -13,17 +13,14 @@ namespace DisKilinigi.UI
 {
     public partial class FrmGenelPencerei : Form
     {
-
-        List<Hasta> hastaListesi = new List<Hasta>();
+	    List<Hasta> hastaListesi = new List<Hasta>();
         List<Doktor> doktorListesi = new List<Doktor>();
         List<Randevu> randevuListesi = new List<Randevu>();
         
-
         public FrmGenelPencerei()
         {
             InitializeComponent();
         }
-
 
         private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
         {
@@ -53,6 +50,5 @@ namespace DisKilinigi.UI
         {
 
         }
-
-	}
+    }
 }
