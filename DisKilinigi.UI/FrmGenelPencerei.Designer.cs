@@ -1116,6 +1116,7 @@ namespace DisKilinigi.UI
 			this.Margin = new System.Windows.Forms.Padding(4);
 			this.Name = "FrmGenelPencerei";
 			this.Text = "FrmGirisEkrani";
+			this.Load += new System.EventHandler(this.FrmGenelPencerei_Load);
 			this.tabControl1.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
 			this.gbHastaKayitHastaBilgileri.ResumeLayout(false);

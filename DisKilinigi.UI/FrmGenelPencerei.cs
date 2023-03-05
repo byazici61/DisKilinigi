@@ -126,6 +126,11 @@ namespace DisKilinigi.UI
 	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "İmplant", Tag = new Islem() { IslemAdi = "İmplant", IslemUcreti = 100 } });
 	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "Diş Teli", Tag = new Islem() { IslemAdi = "Diş Teli", IslemUcreti = 100 } });
         }
+
+		private void FrmGenelPencerei_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 
 }
