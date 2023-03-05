@@ -45,7 +45,7 @@ namespace DisKilinigi.UI
 
         private void btnGecmisTümTedaviler_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("sil");
         }
     }
 }
