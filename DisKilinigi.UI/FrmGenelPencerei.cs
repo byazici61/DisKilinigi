@@ -212,7 +212,6 @@ namespace DisKilinigi.UI
                         lvHastaBilgileri.Items.Add(li);
 
                         //item.RandevuUcreti += item.Islemler.IslemUcreti;
-                        
                     }
                 }
 
