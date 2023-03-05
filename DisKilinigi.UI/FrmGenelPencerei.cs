@@ -252,6 +252,10 @@ namespace DisKilinigi.UI
 
 
                         //flpHizmetler.Controls.Add(new CheckBox() { Text = "Kola", Tag = new Hizmet() { UrunAdi = "Kola", UrunFiyati = 20 } }
+                        //flpHizmetler.Controls.Add(new CheckBox() { Text = "Kola", Tag = new Hizmet() { UrunAdi = "Kola", UrunFiyati = 20 } }
+                        //flpHizmetler.Controls.Add(new CheckBox() { Text = "Kola", Tag = new Hizmet() { UrunAdi = "Kola", UrunFiyati = 20 } }
+                        //flpHizmetler.Controls.Add(new CheckBox() { Text = "Kola", Tag = new Hizmet() { UrunAdi = "Kola", UrunFiyati = 20 } }
+                        //flpHizmetler.Controls.Add(new CheckBox() { Text = "Kola", Tag = new Hizmet() { UrunAdi = "Kola", UrunFiyati = 20 } }
                         
 
                     }
