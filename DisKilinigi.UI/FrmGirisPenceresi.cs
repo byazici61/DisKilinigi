@@ -16,5 +16,10 @@ namespace DisKilinigi.UI
         {
             InitializeComponent();
         }
+
+        private void btnGiris_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

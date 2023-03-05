@@ -16,5 +16,25 @@ namespace DisKilinigi.UI
         {
             InitializeComponent();
         }
+
+        private void btnAdaGoreFiltrele_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDoktoraGoreFiltrele_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTedaviDurumunaGöreFiltrele_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTariheGoreFiltrele_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

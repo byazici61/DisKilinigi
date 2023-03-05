@@ -29,18 +29,19 @@ namespace DisKilinigi.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGiris = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnGiris
             // 
-            this.button1.Location = new System.Drawing.Point(266, 414);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "GİRİŞ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnGiris.Location = new System.Drawing.Point(266, 414);
+            this.btnGiris.Name = "btnGiris";
+            this.btnGiris.Size = new System.Drawing.Size(167, 23);
+            this.btnGiris.TabIndex = 0;
+            this.btnGiris.Text = "GİRİŞ";
+            this.btnGiris.UseVisualStyleBackColor = true;
+            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
             // 
             // label1
             // 
@@ -62,7 +63,7 @@ namespace DisKilinigi.UI
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(698, 483);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGiris);
             this.Name = "FrmGirisPenceresi";
             this.Text = "FrmGirisPenceresi";
             this.ResumeLayout(false);
@@ -71,7 +72,7 @@ namespace DisKilinigi.UI
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGiris;
         private System.Windows.Forms.Label label1;
     }
 }

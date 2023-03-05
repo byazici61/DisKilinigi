@@ -17,17 +17,33 @@ namespace DisKilinigi.UI
             InitializeComponent();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+
+        private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void checkBox8_CheckedChanged(object sender, EventArgs e)
+        private void btnRandevuOlustur_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void gbHastaKayitHastaBilgileri_Enter(object sender, EventArgs e)
+        private void btnOdemeAl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHastaBilgileriİslemGorecekDisleriDuzenle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnHastaBilgileriKaydet_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGecmisTümTedaviler_Click(object sender, EventArgs e)
         {
 
         }

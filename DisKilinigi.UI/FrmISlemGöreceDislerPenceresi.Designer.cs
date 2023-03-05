@@ -30,6 +30,7 @@ namespace DisKilinigi.UI
         private void InitializeComponent()
         {
             this.gbSikayetiOlanDisler = new System.Windows.Forms.GroupBox();
+            this.btnKaydet = new System.Windows.Forms.Button();
             this.cboxDis23 = new System.Windows.Forms.CheckBox();
             this.cboxDis24 = new System.Windows.Forms.CheckBox();
             this.cboxDis25 = new System.Windows.Forms.CheckBox();
@@ -62,7 +63,6 @@ namespace DisKilinigi.UI
             this.cboxDis18 = new System.Windows.Forms.CheckBox();
             this.cboxDis17 = new System.Windows.Forms.CheckBox();
             this.cboxDis1 = new System.Windows.Forms.CheckBox();
-            this.btnKaydet = new System.Windows.Forms.Button();
             this.gbSikayetiOlanDisler.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +110,16 @@ namespace DisKilinigi.UI
             this.gbSikayetiOlanDisler.TabIndex = 5;
             this.gbSikayetiOlanDisler.TabStop = false;
             this.gbSikayetiOlanDisler.Text = "Şikayeti Olan Dişler";
+            // 
+            // btnKaydet
+            // 
+            this.btnKaydet.Location = new System.Drawing.Point(375, 342);
+            this.btnKaydet.Name = "btnKaydet";
+            this.btnKaydet.Size = new System.Drawing.Size(75, 23);
+            this.btnKaydet.TabIndex = 7;
+            this.btnKaydet.Text = "Kaybet";
+            this.btnKaydet.UseVisualStyleBackColor = true;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // cboxDis23
             // 
@@ -399,15 +409,6 @@ namespace DisKilinigi.UI
             this.cboxDis1.Size = new System.Drawing.Size(42, 29);
             this.cboxDis1.TabIndex = 6;
             this.cboxDis1.UseVisualStyleBackColor = true;
-            // 
-            // btnKaydet
-            // 
-            this.btnKaydet.Location = new System.Drawing.Point(375, 342);
-            this.btnKaydet.Name = "btnKaydet";
-            this.btnKaydet.Size = new System.Drawing.Size(75, 23);
-            this.btnKaydet.TabIndex = 7;
-            this.btnKaydet.Text = "Kaybet";
-            this.btnKaydet.UseVisualStyleBackColor = true;
             // 
             // FrmISlemGöreceDislerPenceresi
             // 
