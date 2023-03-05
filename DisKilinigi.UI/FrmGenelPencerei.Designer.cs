@@ -1104,6 +1104,7 @@ namespace DisKilinigi.UI
             this.clboxHastaBilgileri.Name = "clboxHastaBilgileri";
             this.clboxHastaBilgileri.Size = new System.Drawing.Size(350, 464);
             this.clboxHastaBilgileri.TabIndex = 0;
+            this.clboxHastaBilgileri.SelectedIndexChanged += new System.EventHandler(this.clboxHastaBilgileri_SelectedIndexChanged);
             // 
             // FrmGenelPencerei
             // 
