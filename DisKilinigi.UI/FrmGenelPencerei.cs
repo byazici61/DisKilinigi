@@ -76,26 +76,26 @@ namespace DisKilinigi.UI
 
 
 
-		private void btnRandevuOlustur_Click(object sender, EventArgs e)
-		{
-			foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
-			{
-				if (item.Checked)
-				{
+        private void btnRandevuOlustur_Click(object sender, EventArgs e)
+        {
+            //foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+            //{
+            //    if (item.Checked)
+            //    {
 
-					randevuListesi.Add(new Randevu()
-					{
-						Hasta = cmboxHastaAdi.SelectedItem,
-						Doktor = cmboxIlgilenecekDoktor.SelectedItem,
-						RandevuTarihi = dtpRandevuTarihi.Value,
-						Islemler = cmboxYapılacakIslem.SelectedItem
+            //        randevuListesi.Add(new Randevu()
+            //        {
+            //            Hasta = cmboxHastaAdi.SelectedItem,
+            //            Doktor = cmboxIlgilenecekDoktor.SelectedItem,
+            //            RandevuTarihi = dtpRandevuTarihi.Value,
+            //            Islemler = cmboxYapılacakIslem.SelectedItem
 
-					});
-				}
-			}
-		}
+            //        });
+            //    }
+            //}
+        }
 
-		private void btnOdemeAl_Click(object sender, EventArgs e)
+        private void btnOdemeAl_Click(object sender, EventArgs e)
 		{
             foreach (Randevu item in randevuListesi)
             {
@@ -122,48 +122,48 @@ namespace DisKilinigi.UI
 
 		}
 
-		private void btnHastaBilgileriKaydet_Click(object sender, EventArgs e)
-		{
+        private void btnHastaBilgileriKaydet_Click(object sender, EventArgs e)
+        {
 
-			foreach (Randevu item in randevuListesi)
-			{
-				if (item.Hasta.HastaAdSoyad == clboxHastaBilgileri.SelectedItem.ToString())
-				{
-					item.Hasta.TelefonNumarasi = mtxtHastaBilgileriTelefonNo.Text;
-					item.Islemler = cmboxHastaBilgileriGelisSebebi.SelectedItem;
-					item.Hasta.EkstraAciklama = txtHastaBilgileriEkstraBilgiler.Text;
-					item.RandevuDurumu = cmboxHastaBilgileriTedaviDurumu.SelectedItem;
+            //foreach (Randevu item in randevuListesi)
+            //{
+            //    if (item.Hasta.HastaAdSoyad == clboxHastaBilgileri.SelectedItem.ToString())
+            //    {
+            //        item.Hasta.TelefonNumarasi = mtxtHastaBilgileriTelefonNo.Text;
+            //        item.Islemler = cmboxHastaBilgileriGelisSebebi.SelectedItem;
+            //        item.Hasta.EkstraAciklama = txtHastaBilgileriEkstraBilgiler.Text;
+            //        item.RandevuDurumu = cmboxHastaBilgileriTedaviDurumu.SelectedItem;
 
-				}
+            //    }
 
-			}
+            //}
 
-		}
+        }
 
-		private void clboxHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			foreach (CheckBox item in clboxHastaBilgileri.CheckedItems)
-			{
-				txtHastaBilgileriHastaAdSoyad.Text = item.Tag.Randevu.Hasta.AdSoyad;
-				mtxtHastaBilgileriKimlikNumarası.Text = item.Tag.Randevu.Hasta.KimlikNumarasi;
-				mtxtHastaBilgileriDogumTarihi.Text = item.Tag.Randevu.Hasta.DogumTarihi;
-				mtxtHastaBilgileriTelefonNo.Text = item.Tag.Randevu.Hasta.TelefonNumarasi;
-				cmboxHastaBilgileriKanGrubu.DataSource = item.Tag.Randevu.Hasta.KanGrubu;
-				txtHastaBilgileriEkstraBilgiler.Text = item.Tag.Randevu.Hasta.EkstraAciklama;
-				cmboxHastaBilgileriGelisSebebi.DataSource = item.Tag.Randevu.Hasta.Islemler;
+        private void clboxHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //foreach (CheckBox item in clboxHastaBilgileri.CheckedItems)
+            //{
+            //    txtHastaBilgileriHastaAdSoyad.Text = item.Tag.Randevu.Hasta.AdSoyad;
+            //    mtxtHastaBilgileriKimlikNumarası.Text = item.Tag.Randevu.Hasta.KimlikNumarasi;
+            //    mtxtHastaBilgileriDogumTarihi.Text = item.Tag.Randevu.Hasta.DogumTarihi;
+            //    mtxtHastaBilgileriTelefonNo.Text = item.Tag.Randevu.Hasta.TelefonNumarasi;
+            //    cmboxHastaBilgileriKanGrubu.DataSource = item.Tag.Randevu.Hasta.KanGrubu;
+            //    txtHastaBilgileriEkstraBilgiler.Text = item.Tag.Randevu.Hasta.EkstraAciklama;
+            //    cmboxHastaBilgileriGelisSebebi.DataSource = item.Tag.Randevu.Hasta.Islemler;
 
-			}
+            //}
 
-		}
+        }
 
-		private void btnGecmisTümTedaviler_Click(object sender, EventArgs e)
+        private void btnGecmisTümTedaviler_Click(object sender, EventArgs e)
         {
 
         }
 
         private bool Validasyon()
         {
-	        throw new NotImplementedException();
+            return true;
         }
 		void HastayaYapilacakIslemleriOlustur()
         {
@@ -175,7 +175,15 @@ namespace DisKilinigi.UI
 	        cmboxYapılacakIslem.Controls.Add(new ComboBox() { Text = "Diş Teli", Tag = new Islem() { IslemAdi = "Diş Teli", IslemUcreti = 100 } });
         }
 
-
-	}
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex==1)
+            {
+                gbTedaviAtamasi.Enabled = true;
+				cmboxHastaAdi.Items.AddRange(hastaListesi.ToArray());
+            }
+            
+        }
+    }
 
 }
