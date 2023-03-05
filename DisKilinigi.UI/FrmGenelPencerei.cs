@@ -99,7 +99,8 @@ namespace DisKilinigi.UI
                         Doktor = cmboxIlgilenecekDoktor.SelectedItem as Doktor,
                         RandevuTarihi = dtpRandevuTarihi.Value,
                         Islemler = cmboxYapılacakIslem.SelectedItem as List<Islem>,
-                        RandevuDurumu = true
+                        RandevuDurumu = true,
+
 
                     }) ;
                     islemYapilacakDisAdlari.Add(item.Name.Substring(4, item.Name.Length - 4));
@@ -125,7 +126,7 @@ namespace DisKilinigi.UI
                     li.SubItems.Add(item.Hasta.DogumTarihi);
                     li.SubItems.AddRange(islemYapilacakDisAdlari.ToArray());
 
-                    li.SubItems.Add(item.Islemler);
+                    //li.SubItems.Add(item.Islemler);
                     //li.SubItems.Add(item.RandevuDurumu);
                     li.Tag = item;
                     lvHastaBilgileri.Items.Add(li);
@@ -233,6 +234,25 @@ namespace DisKilinigi.UI
             }
 
         }
-    }
+
+		private void chboxTumunuSec_CheckStateChanged(object sender, EventArgs e)
+		{
+			if (chboxTumunuSec.Checked)
+			{
+				foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+				{
+					item.Checked = true;
+				}
+			}
+			else
+			{
+				foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+				{
+					item.Checked = false;
+				}
+			}
+			
+		}
+	}
 
 }
