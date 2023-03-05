@@ -18,6 +18,6 @@ namespace DisKilinigi.UI.Common
 
         public Hasta Hasta { get; set; }
         public List<Islem> Islemler { get; set; } = new List<Islem>();
-        
+        public int MyProperty { get; set; }
     }
 }
