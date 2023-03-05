@@ -32,7 +32,20 @@ namespace DisKilinigi.UI
 
 		private void btnRandevuOlustur_Click(object sender, EventArgs e)
 		{
+			foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+			{
+				if (item.Checked)
+				{
+					randevuListesi.AddRange(new Randevu()
+					{
+						Hasta = cmboxHastaAdi.SelectedItem,
+						Doktor = cmboxIlgilenecekDoktor.SelectedItem,
+						RandevuTarihi = dtpRandevuTarihi.Value,
+						Islemler = cmboxYapılacakIslem.SelectedItem
 
+					});
+				}
+			}
 		}
 
 		private void btnOdemeAl_Click(object sender, EventArgs e)
