@@ -253,7 +253,17 @@ namespace DisKilinigi.UI
 
         private void lvHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            foreach (Randevu item in randevuListesi)
+            {
+                if (lvHastaBilgileri.SelectedIndices.Contains(int.Parse(item.Hasta.KimlikNumarasi))){
+
+                    MessageBox.Show(item.Hasta.HastaAdSoyad);
+
+
+                }
+
+
+            }
         }
     }
 
