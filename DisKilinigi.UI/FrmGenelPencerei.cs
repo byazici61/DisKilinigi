@@ -27,39 +27,7 @@ namespace DisKilinigi.UI
 
 		private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
 		{
-			doktorListesi.AddRange(new List<Doktor>()
-			{ 
-				new Doktor() {DoktorAdSoyad="Melike Hoca",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Batuhan Yazıcı",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Berkay Engin",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Ela Güler",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Zahide Uzun",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Yekta Büyükkaya",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-
-			});
-			if (Validasyon())
-			{
-				// todo textbox1 => txtEkstraAciklama , Kangrubu textbox atılacak
-				hastaListesi.Add(
-					new Hasta
-					{
-						HastaAdSoyad = txtHastanaIlkMuayeneAdSoyad.Text,
-						KimlikNumarasi = mtxtHastaBilgileriKimlikNumarası.Text,
-						DogumTarihi = mtxtHastanaIlkMuayeneDoğumTarihi.Text,
-						TelefonNumarasi = mtxtHastanaIlkMuayeneTelefonNumarasi.Text,
-						EkstraAciklama = textBox1.Text,
-						KanGrubu = ""
-					});
-			}
-			else
-			{
-				MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz");
-			}
-		}
-
-		private bool Validasyon()
-		{
-			throw new NotImplementedException();
+			Berkay();
 		}
 
 		private void btnRandevuOlustur_Click(object sender, EventArgs e)
@@ -85,6 +53,40 @@ namespace DisKilinigi.UI
 		private void btnGecmisTümTedaviler_Click(object sender, EventArgs e)
 		{
 
+		}
+		private void Berkay()
+		{
+			doktorListesi.AddRange(new List<Doktor>()
+			{
+				new Doktor() {DoktorAdSoyad="Melike Memiş",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Batuhan Yazıcı",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Berkay Engin",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Ela Güler",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Zahide Uzun",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Yekta Büyükkaya",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+			});
+			if (Validasyon())
+			{
+				// todo textbox1 => txtEkstraAciklama , Kangrubu textbox atılacak
+				hastaListesi.Add(
+					new Hasta
+					{
+						HastaAdSoyad = txtHastanaIlkMuayeneAdSoyad.Text,
+						KimlikNumarasi = mtxtHastaBilgileriKimlikNumarası.Text,
+						DogumTarihi = mtxtHastanaIlkMuayeneDoğumTarihi.Text,
+						TelefonNumarasi = mtxtHastanaIlkMuayeneTelefonNumarasi.Text,
+						EkstraAciklama = textBox1.Text,
+						KanGrubu = ""
+					});
+			}
+			else
+			{
+				MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz");
+			}
+		}
+		private bool Validasyon()
+		{
+			throw new NotImplementedException();
 		}
 	}
 }
