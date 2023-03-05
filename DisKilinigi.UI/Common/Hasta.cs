@@ -15,5 +15,10 @@ namespace DisKilinigi.UI.Common
         public string KanGrubu { get; set; }
         public string EkstraAciklama{get; set; }
 
+        public override string ToString()
+        {
+            return HastaAdSoyad; 
+        }
+
     }
 }

@@ -879,14 +879,6 @@ namespace DisKilinigi.UI
             // cmboxIlgilenecekDoktor
             // 
             this.cmboxIlgilenecekDoktor.FormattingEnabled = true;
-            this.cmboxIlgilenecekDoktor.Items.AddRange(new object[] {
-            "Melike Memiş",
-            "Batuhan Yazıcı",
-            "Berkay Engin",
-            "Ela Gürler",
-            "Yekta Büyükkaya",
-            "Zahide Uzun",
-            ""});
             this.cmboxIlgilenecekDoktor.Location = new System.Drawing.Point(139, 102);
             this.cmboxIlgilenecekDoktor.Name = "cmboxIlgilenecekDoktor";
             this.cmboxIlgilenecekDoktor.Size = new System.Drawing.Size(192, 25);
@@ -895,14 +887,6 @@ namespace DisKilinigi.UI
             // cmboxHastaAdi
             // 
             this.cmboxHastaAdi.FormattingEnabled = true;
-            this.cmboxHastaAdi.Items.AddRange(new object[] {
-            "Melike Memiş",
-            "Batuhan Yazıcı",
-            "Berkay Engin",
-            "Ela Gürler",
-            "Yekta Büyükkaya",
-            "Zahide Uzun",
-            ""});
             this.cmboxHastaAdi.Location = new System.Drawing.Point(139, 71);
             this.cmboxHastaAdi.Name = "cmboxHastaAdi";
             this.cmboxHastaAdi.Size = new System.Drawing.Size(192, 25);
