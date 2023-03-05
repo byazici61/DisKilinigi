@@ -79,7 +79,7 @@ namespace DisKilinigi.UI
 
 
 
-      
+
 
 
         /// <summary>
@@ -93,7 +93,7 @@ namespace DisKilinigi.UI
             {
                 if (item.Checked)
                 {
-                    islemYapilacakDisAdlari += item.Name.Substring(4, item.Name.Length - 4) +" ";
+                    islemYapilacakDisAdlari += item.Name.Substring(4, item.Name.Length - 4) + " ";
                 }
             }
             string[] dizi = islemYapilacakDisAdlari.Split(' ');
@@ -110,8 +110,8 @@ namespace DisKilinigi.UI
                 Disler = dizi
 
 
-            }) ;
-            
+            });
+
         }
 
 
@@ -119,7 +119,7 @@ namespace DisKilinigi.UI
         {
             foreach (Randevu item in randevuListesi)
             {
-               
+
             }
         }
 
@@ -195,7 +195,7 @@ namespace DisKilinigi.UI
                 cmboxHastaAdi.Items.AddRange(hastaListesi.ToArray());
                 cmboxIlgilenecekDoktor.Items.AddRange(doktorListesi.ToArray());
             }
-            if (tabControl1.SelectedIndex==2)
+            if (tabControl1.SelectedIndex == 2)
             {
                 foreach (Randevu item in randevuListesi)
                 {
@@ -207,7 +207,7 @@ namespace DisKilinigi.UI
                         li.SubItems.Add(DiziyiStringeCevir(item.Disler));
                         li.SubItems.Add(item.Islemler.ToString());
                         li.SubItems.Add(item.RandevuTarihi.ToString());
-                       
+
                         li.Tag = item;
                         lvHastaBilgileri.Items.Add(li);
 
@@ -221,56 +221,55 @@ namespace DisKilinigi.UI
 
         private string DiziyiStringeCevir(string[] dizi)
         {
-            string disler="";
+            string disler = "";
             foreach (string item in dizi)
             {
                 disler += item + " ";
-                    
+
 
             }
             return disler;
         }
 
         private void chboxTumunuSec_CheckStateChanged(object sender, EventArgs e)
-		{
-			if (chboxTumunuSec.Checked)
-			{
-				foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
-				{
-					item.Checked = true;
-				}
-			}
-			else
-			{
-				foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
-				{
-					item.Checked = false;
-				}
-			}
-			
-		}
+        {
+            if (chboxTumunuSec.Checked)
+            {
+                foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+                {
+                    item.Checked = true;
+                }
+            }
+            else
+            {
+                foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+                {
+                    item.Checked = false;
+                }
+            }
+
+        }
 
         private void lvHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (Randevu item in randevuListesi)
             {
-               
+
 
 
             }
         }
 
         private void lvHastaBilgileri_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-            foreach (Randevu item in randevuListesi)
+        {//todo
+
+            foreach (ListViewItem item in lvHastaBilgileri.CheckedItems)
             {
-                //if (lvHastaBilgileri.Items.che)
-                //{
-
-                //}
-
-
+                MessageBox.Show(item.GetSubItemAt(item.Index,3).Text);
+                
             }
+
+
 
         }
     }
