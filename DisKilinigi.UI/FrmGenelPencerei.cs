@@ -104,7 +104,7 @@ namespace DisKilinigi.UI
 				        KimlikNumarasi = mtxtHastaBilgileriKimlikNumarası.Text,
 				        DogumTarihi = mtxtHastanaIlkMuayeneDoğumTarihi.Text,
 				        TelefonNumarasi = mtxtHastanaIlkMuayeneTelefonNumarasi.Text,
-				        EkstraAciklama = textBox1.Text,
+				        EkstraAciklama = txtHastaSikayet.Text,
 				        KanGrubu = ""
 			        });
 	        }
