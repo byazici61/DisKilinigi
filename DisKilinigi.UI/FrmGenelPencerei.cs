@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DisKilinigi.UI
 {
@@ -107,8 +108,9 @@ namespace DisKilinigi.UI
                 RandevuTarihi = dtpRandevuTarihi.Value,
                 Islemler = cmboxYapılacakIslem.SelectedItem as Islem,
                 RandevuDurumu = true,
-                Disler = dizi
-
+                Disler = dizi,
+                RandevuUcreti=100
+                // todo fiyat hesaplanacak
 
             });
 
@@ -207,7 +209,7 @@ namespace DisKilinigi.UI
                         li.SubItems.Add(DiziyiStringeCevir(item.Disler));
                         li.SubItems.Add(item.Islemler.ToString());
                         li.SubItems.Add(item.RandevuTarihi.ToString());
-
+                        li.SubItems.Add(item.RandevuUcreti.ToString());
                         li.Tag = item;
                         lvHastaBilgileri.Items.Add(li);
 
@@ -252,12 +254,7 @@ namespace DisKilinigi.UI
 
         private void lvHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (Randevu item in randevuListesi)
-            {
-
-
-
-            }
+            
         }
 
         private void lvHastaBilgileri_ItemChecked(object sender, ItemCheckedEventArgs e)
@@ -272,6 +269,16 @@ namespace DisKilinigi.UI
 
 
         }
-    }
+
+		private void lvHastaBilgileri_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            
+			if (lvHastaBilgileri.SelectedItems.Count > 0)
+			{
+				ListViewItem item = lvHastaBilgileri.SelectedItems[0];
+				lblRandevuBİlgileri.Text = item.SubItems[6].Text;
+			}
+		}
+	}
 
 }
