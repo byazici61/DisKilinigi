@@ -79,7 +79,7 @@ namespace DisKilinigi.UI
 
 
 
-
+      
 
 
         /// <summary>
@@ -93,43 +93,34 @@ namespace DisKilinigi.UI
             {
                 if (item.Checked)
                 {
-                    randevuListesi.Add(new Randevu()
-                    {
-                        Hasta = cmboxHastaAdi.SelectedItem as Hasta,
-                        Doktor = cmboxIlgilenecekDoktor.SelectedItem as Doktor,
-                        RandevuTarihi = dtpRandevuTarihi.Value,
-                        Islemler = cmboxYapılacakIslem.SelectedItem as Islem,
-                        RandevuDurumu = true,
-
-
-                    }) ;
-                    islemYapilacakDisAdlari+= item.Name.Substring(4, item.Name.Length - 4) +" ";
-                   
-
+                    islemYapilacakDisAdlari += item.Name.Substring(4, item.Name.Length - 4) +" ";
                 }
             }
+            string[] dizi = islemYapilacakDisAdlari.Split(' ');
+            islemYapilacakDisAdlari = "";
+
+            randevuListesi.Add(new Randevu()
+            {
+
+                Hasta = cmboxHastaAdi.SelectedItem as Hasta,
+                Doktor = cmboxIlgilenecekDoktor.SelectedItem as Doktor,
+                RandevuTarihi = dtpRandevuTarihi.Value,
+                Islemler = cmboxYapılacakIslem.SelectedItem as Islem,
+                RandevuDurumu = true,
+                Disler = dizi
+
+
+            }) ;
+            
         }
 
 
         private void btnOdemeAl_Click(object sender, EventArgs e)
         {
-            //foreach (Randevu item in randevuListesi)
-            //{
-            //    if (item.RandevuDurumu)
-            //    {
-            //        ListViewItem li = new ListViewItem(item.Hasta.HastaAdSoyad, 0);
-            //        li.SubItems.Add(item.Hasta.KimlikNumarasi);
-            //        li.SubItems.Add(item.Hasta.DogumTarihi);
-            //        li.SubItems.AddRange(islemYapilacakDisAdlari.ToArray());
-            //        li.SubItems.Add(item.Islemler.ToString());
-            //        li.Tag = item;
-            //        lvHastaBilgileri.Items.Add(li);
-
-            //        double toplamTutar = item.RandevuUcreti;
-            //        MessageBox.Show("Ödeme bilgileriniz\n Toplam tutar: " + toplamTutar.ToString());
-            //    }
-
-            //}
+            foreach (Randevu item in randevuListesi)
+            {
+               
+            }
         }
 
         private void btnHastaBilgileriİslemGorecekDisleriDuzenle_Click(object sender, EventArgs e)
@@ -213,7 +204,7 @@ namespace DisKilinigi.UI
                         ListViewItem li = new ListViewItem(item.Hasta.HastaAdSoyad, 0);
                         li.SubItems.Add(item.Hasta.KimlikNumarasi);
                         li.SubItems.Add(item.Hasta.DogumTarihi);
-                        li.SubItems.Add(islemYapilacakDisAdlari);
+                        li.SubItems.Add(DiziyiStringeCevir(item.Disler));
                         li.SubItems.Add(item.Islemler.ToString());
                         li.SubItems.Add(item.RandevuTarihi.ToString());
                        
@@ -221,8 +212,7 @@ namespace DisKilinigi.UI
                         lvHastaBilgileri.Items.Add(li);
 
                         //item.RandevuUcreti += item.Islemler.IslemUcreti;
-                        double toplamTutar = item.RandevuUcreti;
-                        MessageBox.Show("Ödeme bilgileriniz\n Toplam tutar: " + toplamTutar.ToString());
+                        
                     }
                 }
 
@@ -230,7 +220,19 @@ namespace DisKilinigi.UI
 
         }
 
-		private void chboxTumunuSec_CheckStateChanged(object sender, EventArgs e)
+        private string DiziyiStringeCevir(string[] dizi)
+        {
+            string disler="";
+            foreach (string item in dizi)
+            {
+                disler += item + " ";
+                    
+
+            }
+            return disler;
+        }
+
+        private void chboxTumunuSec_CheckStateChanged(object sender, EventArgs e)
 		{
 			if (chboxTumunuSec.Checked)
 			{
@@ -248,6 +250,11 @@ namespace DisKilinigi.UI
 			}
 			
 		}
-	}
+
+        private void lvHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+    }
 
 }

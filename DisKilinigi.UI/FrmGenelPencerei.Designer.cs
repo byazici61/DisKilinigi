@@ -56,7 +56,7 @@ namespace DisKilinigi.UI
             this.clboxHastaBilgileri = new System.Windows.Forms.CheckedListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnOdemeAl = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
+            this.lblRandevuBİlgileri = new System.Windows.Forms.Label();
             this.lvHastaBilgileri = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -393,7 +393,7 @@ namespace DisKilinigi.UI
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnOdemeAl);
-            this.tabPage3.Controls.Add(this.label25);
+            this.tabPage3.Controls.Add(this.lblRandevuBİlgileri);
             this.tabPage3.Controls.Add(this.lvHastaBilgileri);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
@@ -414,13 +414,13 @@ namespace DisKilinigi.UI
             this.btnOdemeAl.UseVisualStyleBackColor = true;
             this.btnOdemeAl.Click += new System.EventHandler(this.btnOdemeAl_Click);
             // 
-            // label25
+            // lblRandevuBİlgileri
             // 
-            this.label25.Location = new System.Drawing.Point(8, 366);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(690, 125);
-            this.label25.TabIndex = 3;
-            this.label25.Text = "label25";
+            this.lblRandevuBİlgileri.Location = new System.Drawing.Point(8, 366);
+            this.lblRandevuBİlgileri.Name = "lblRandevuBİlgileri";
+            this.lblRandevuBİlgileri.Size = new System.Drawing.Size(690, 125);
+            this.lblRandevuBİlgileri.TabIndex = 3;
+            this.lblRandevuBİlgileri.Text = "label25";
             // 
             // lvHastaBilgileri
             // 
@@ -439,6 +439,7 @@ namespace DisKilinigi.UI
             this.lvHastaBilgileri.TabIndex = 1;
             this.lvHastaBilgileri.UseCompatibleStateImageBehavior = false;
             this.lvHastaBilgileri.View = System.Windows.Forms.View.Details;
+            this.lvHastaBilgileri.SelectedIndexChanged += new System.EventHandler(this.lvHastaBilgileri_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -1163,7 +1164,7 @@ namespace DisKilinigi.UI
         private System.Windows.Forms.CheckedListBox clboxHastaBilgileri;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnOdemeAl;
-        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label lblRandevuBİlgileri;
         private System.Windows.Forms.ListView lvHastaBilgileri;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
