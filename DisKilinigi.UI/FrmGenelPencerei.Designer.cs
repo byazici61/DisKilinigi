@@ -30,6 +30,8 @@ namespace DisKilinigi.UI
         private void InitializeComponent()
         {
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.btnHastaGetir = new System.Windows.Forms.Button();
+			this.flplist = new System.Windows.Forms.FlowLayoutPanel();
 			this.btnGecmisTümTedaviler = new System.Windows.Forms.Button();
 			this.gbHastaBilgileriHastaBilgileri = new System.Windows.Forms.GroupBox();
 			this.btnHastaBilgileriİslemGorecekDisleriDuzenle = new System.Windows.Forms.Button();
@@ -40,9 +42,7 @@ namespace DisKilinigi.UI
 			this.label16 = new System.Windows.Forms.Label();
 			this.cmboxHastaBilgileriTedaviDurumu = new System.Windows.Forms.ComboBox();
 			this.cmboxHastaBilgileriKanGrubu = new System.Windows.Forms.ComboBox();
-			this.cmboxHastaBilgileriGelisSebebi = new System.Windows.Forms.ComboBox();
 			this.label14 = new System.Windows.Forms.Label();
-			this.label15 = new System.Windows.Forms.Label();
 			this.label17 = new System.Windows.Forms.Label();
 			this.label18 = new System.Windows.Forms.Label();
 			this.label19 = new System.Windows.Forms.Label();
@@ -53,7 +53,6 @@ namespace DisKilinigi.UI
 			this.mtxtHastaBilgileriDogumTarihi = new System.Windows.Forms.MaskedTextBox();
 			this.mtxtHastaBilgileriKimlikNumarası = new System.Windows.Forms.MaskedTextBox();
 			this.txtHastaBilgileriHastaAdSoyad = new System.Windows.Forms.TextBox();
-			this.clboxHastaBilgileri = new System.Windows.Forms.CheckedListBox();
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.btnOdemeAl = new System.Windows.Forms.Button();
 			this.lblRandevuBİlgileri = new System.Windows.Forms.Label();
@@ -68,7 +67,6 @@ namespace DisKilinigi.UI
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.chboxTumunuSec = new System.Windows.Forms.CheckBox();
 			this.gbTedaviAtamasi = new System.Windows.Forms.GroupBox();
-			this.picbDoktorResmi = new System.Windows.Forms.PictureBox();
 			this.btnRandevuOlustur = new System.Windows.Forms.Button();
 			this.cmboxYapılacakIslem = new System.Windows.Forms.ComboBox();
 			this.cmboxHastaAdi = new System.Windows.Forms.ComboBox();
@@ -78,6 +76,25 @@ namespace DisKilinigi.UI
 			this.label12 = new System.Windows.Forms.Label();
 			this.label9 = new System.Windows.Forms.Label();
 			this.dtpRandevuTarihi = new System.Windows.Forms.DateTimePicker();
+			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.btnRontgenRandevuOlustur = new System.Windows.Forms.Button();
+			this.gbHastaKayitHastaBilgileri = new System.Windows.Forms.GroupBox();
+			this.label7 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.label6 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.label1 = new System.Windows.Forms.Label();
+			this.mtxtHastanaIlkMuayeneTelefonNumarasi = new System.Windows.Forms.MaskedTextBox();
+			this.mtxtHastanaIlkMuayeneDoğumTarihi = new System.Windows.Forms.MaskedTextBox();
+			this.mtxtHastaKayitKimlikNo = new System.Windows.Forms.MaskedTextBox();
+			this.txtHastaSikayet = new System.Windows.Forms.TextBox();
+			this.txtHastanaIlkMuayeneAdSoyad = new System.Windows.Forms.TextBox();
+			this.tabControl1 = new System.Windows.Forms.TabControl();
+			this.pbRontgen = new System.Windows.Forms.PictureBox();
+			this.picbDoktorResmi = new System.Windows.Forms.PictureBox();
 			this.gbSikayetiOlanDisler = new System.Windows.Forms.GroupBox();
 			this.cboxDis23 = new System.Windows.Forms.CheckBox();
 			this.cboxDis24 = new System.Windows.Forms.CheckBox();
@@ -111,35 +128,19 @@ namespace DisKilinigi.UI
 			this.cboxDis18 = new System.Windows.Forms.CheckBox();
 			this.cboxDis17 = new System.Windows.Forms.CheckBox();
 			this.cboxDis1 = new System.Windows.Forms.CheckBox();
-			this.tabPage4 = new System.Windows.Forms.TabPage();
-			this.btnRontgenRandevuOlustur = new System.Windows.Forms.Button();
-			this.gbHastaKayitHastaBilgileri = new System.Windows.Forms.GroupBox();
-			this.label7 = new System.Windows.Forms.Label();
-			this.label4 = new System.Windows.Forms.Label();
-			this.label6 = new System.Windows.Forms.Label();
-			this.label3 = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
-			this.label11 = new System.Windows.Forms.Label();
-			this.label5 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.mtxtHastanaIlkMuayeneTelefonNumarasi = new System.Windows.Forms.MaskedTextBox();
-			this.mtxtHastanaIlkMuayeneDoğumTarihi = new System.Windows.Forms.MaskedTextBox();
-			this.mtxtHastaKayitKimlikNo = new System.Windows.Forms.MaskedTextBox();
-			this.txtHastaSikayet = new System.Windows.Forms.TextBox();
-			this.txtHastanaIlkMuayeneAdSoyad = new System.Windows.Forms.TextBox();
-			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.flplist = new System.Windows.Forms.FlowLayoutPanel();
-			this.btnHastaGetir = new System.Windows.Forms.Button();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.tabPage1.SuspendLayout();
 			this.gbHastaBilgileriHastaBilgileri.SuspendLayout();
 			this.tabPage3.SuspendLayout();
 			this.tabPage2.SuspendLayout();
 			this.gbTedaviAtamasi.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.picbDoktorResmi)).BeginInit();
-			this.gbSikayetiOlanDisler.SuspendLayout();
 			this.tabPage4.SuspendLayout();
 			this.gbHastaKayitHastaBilgileri.SuspendLayout();
 			this.tabControl1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pbRontgen)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.picbDoktorResmi)).BeginInit();
+			this.gbSikayetiOlanDisler.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tabPage1
@@ -148,13 +149,29 @@ namespace DisKilinigi.UI
 			this.tabPage1.Controls.Add(this.flplist);
 			this.tabPage1.Controls.Add(this.btnGecmisTümTedaviler);
 			this.tabPage1.Controls.Add(this.gbHastaBilgileriHastaBilgileri);
-			this.tabPage1.Controls.Add(this.clboxHastaBilgileri);
 			this.tabPage1.Location = new System.Drawing.Point(4, 25);
 			this.tabPage1.Name = "tabPage1";
 			this.tabPage1.Size = new System.Drawing.Size(958, 494);
 			this.tabPage1.TabIndex = 3;
 			this.tabPage1.Text = "Hasta Bilgileri";
 			this.tabPage1.UseVisualStyleBackColor = true;
+			// 
+			// btnHastaGetir
+			// 
+			this.btnHastaGetir.Location = new System.Drawing.Point(212, 439);
+			this.btnHastaGetir.Name = "btnHastaGetir";
+			this.btnHastaGetir.Size = new System.Drawing.Size(118, 23);
+			this.btnHastaGetir.TabIndex = 27;
+			this.btnHastaGetir.Text = "Hasta Getir";
+			this.btnHastaGetir.UseVisualStyleBackColor = true;
+			this.btnHastaGetir.Click += new System.EventHandler(this.btnHastaGetir_Click);
+			// 
+			// flplist
+			// 
+			this.flplist.Location = new System.Drawing.Point(8, 20);
+			this.flplist.Name = "flplist";
+			this.flplist.Size = new System.Drawing.Size(337, 413);
+			this.flplist.TabIndex = 26;
 			// 
 			// btnGecmisTümTedaviler
 			// 
@@ -176,9 +193,7 @@ namespace DisKilinigi.UI
 			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.label16);
 			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.cmboxHastaBilgileriTedaviDurumu);
 			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.cmboxHastaBilgileriKanGrubu);
-			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.cmboxHastaBilgileriGelisSebebi);
 			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.label14);
-			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.label15);
 			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.label17);
 			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.label18);
 			this.gbHastaBilgileriHastaBilgileri.Controls.Add(this.label19);
@@ -198,7 +213,7 @@ namespace DisKilinigi.UI
 			// 
 			// btnHastaBilgileriİslemGorecekDisleriDuzenle
 			// 
-			this.btnHastaBilgileriİslemGorecekDisleriDuzenle.Location = new System.Drawing.Point(6, 435);
+			this.btnHastaBilgileriİslemGorecekDisleriDuzenle.Location = new System.Drawing.Point(6, 413);
 			this.btnHastaBilgileriİslemGorecekDisleriDuzenle.Name = "btnHastaBilgileriİslemGorecekDisleriDuzenle";
 			this.btnHastaBilgileriİslemGorecekDisleriDuzenle.Size = new System.Drawing.Size(216, 23);
 			this.btnHastaBilgileriİslemGorecekDisleriDuzenle.TabIndex = 25;
@@ -208,7 +223,7 @@ namespace DisKilinigi.UI
 			// 
 			// btnHastaBilgileriKaydet
 			// 
-			this.btnHastaBilgileriKaydet.Location = new System.Drawing.Point(267, 435);
+			this.btnHastaBilgileriKaydet.Location = new System.Drawing.Point(267, 413);
 			this.btnHastaBilgileriKaydet.Name = "btnHastaBilgileriKaydet";
 			this.btnHastaBilgileriKaydet.Size = new System.Drawing.Size(75, 23);
 			this.btnHastaBilgileriKaydet.TabIndex = 25;
@@ -219,7 +234,7 @@ namespace DisKilinigi.UI
 			// label24
 			// 
 			this.label24.AutoSize = true;
-			this.label24.Location = new System.Drawing.Point(25, 398);
+			this.label24.Location = new System.Drawing.Point(25, 376);
 			this.label24.Name = "label24";
 			this.label24.Size = new System.Drawing.Size(105, 16);
 			this.label24.TabIndex = 24;
@@ -227,7 +242,7 @@ namespace DisKilinigi.UI
 			// 
 			// txtHastaBilgileriEkstraBilgiler
 			// 
-			this.txtHastaBilgileriEkstraBilgiler.Location = new System.Drawing.Point(22, 324);
+			this.txtHastaBilgileriEkstraBilgiler.Location = new System.Drawing.Point(22, 289);
 			this.txtHastaBilgileriEkstraBilgiler.Multiline = true;
 			this.txtHastaBilgileriEkstraBilgiler.Name = "txtHastaBilgileriEkstraBilgiler";
 			this.txtHastaBilgileriEkstraBilgiler.Size = new System.Drawing.Size(320, 67);
@@ -236,7 +251,7 @@ namespace DisKilinigi.UI
 			// label23
 			// 
 			this.label23.AutoSize = true;
-			this.label23.Location = new System.Drawing.Point(22, 303);
+			this.label23.Location = new System.Drawing.Point(22, 268);
 			this.label23.Name = "label23";
 			this.label23.Size = new System.Drawing.Size(287, 16);
 			this.label23.TabIndex = 22;
@@ -245,7 +260,7 @@ namespace DisKilinigi.UI
 			// label16
 			// 
 			this.label16.AutoSize = true;
-			this.label16.Location = new System.Drawing.Point(22, 270);
+			this.label16.Location = new System.Drawing.Point(22, 235);
 			this.label16.Name = "label16";
 			this.label16.Size = new System.Drawing.Size(72, 16);
 			this.label16.TabIndex = 21;
@@ -254,7 +269,7 @@ namespace DisKilinigi.UI
 			// cmboxHastaBilgileriTedaviDurumu
 			// 
 			this.cmboxHastaBilgileriTedaviDurumu.FormattingEnabled = true;
-			this.cmboxHastaBilgileriTedaviDurumu.Location = new System.Drawing.Point(132, 395);
+			this.cmboxHastaBilgileriTedaviDurumu.Location = new System.Drawing.Point(132, 373);
 			this.cmboxHastaBilgileriTedaviDurumu.Name = "cmboxHastaBilgileriTedaviDurumu";
 			this.cmboxHastaBilgileriTedaviDurumu.Size = new System.Drawing.Size(210, 24);
 			this.cmboxHastaBilgileriTedaviDurumu.TabIndex = 20;
@@ -262,19 +277,19 @@ namespace DisKilinigi.UI
 			// cmboxHastaBilgileriKanGrubu
 			// 
 			this.cmboxHastaBilgileriKanGrubu.FormattingEnabled = true;
-			this.cmboxHastaBilgileriKanGrubu.Location = new System.Drawing.Point(132, 267);
+			this.cmboxHastaBilgileriKanGrubu.Items.AddRange(new object[] {
+            "A Rh+",
+            "A Rh-",
+            "B Rh+",
+            "B Rh-",
+            "AB Rh+",
+            "AB Rh-",
+            "0+",
+            "0-"});
+			this.cmboxHastaBilgileriKanGrubu.Location = new System.Drawing.Point(132, 232);
 			this.cmboxHastaBilgileriKanGrubu.Name = "cmboxHastaBilgileriKanGrubu";
 			this.cmboxHastaBilgileriKanGrubu.Size = new System.Drawing.Size(210, 24);
 			this.cmboxHastaBilgileriKanGrubu.TabIndex = 20;
-			// 
-			// cmboxHastaBilgileriGelisSebebi
-			// 
-			this.cmboxHastaBilgileriGelisSebebi.Enabled = false;
-			this.cmboxHastaBilgileriGelisSebebi.FormattingEnabled = true;
-			this.cmboxHastaBilgileriGelisSebebi.Location = new System.Drawing.Point(132, 230);
-			this.cmboxHastaBilgileriGelisSebebi.Name = "cmboxHastaBilgileriGelisSebebi";
-			this.cmboxHastaBilgileriGelisSebebi.Size = new System.Drawing.Size(210, 24);
-			this.cmboxHastaBilgileriGelisSebebi.TabIndex = 20;
 			// 
 			// label14
 			// 
@@ -284,15 +299,6 @@ namespace DisKilinigi.UI
 			this.label14.Size = new System.Drawing.Size(94, 16);
 			this.label14.TabIndex = 10;
 			this.label14.Text = "Doğum Tarihi :";
-			// 
-			// label15
-			// 
-			this.label15.AutoSize = true;
-			this.label15.Location = new System.Drawing.Point(22, 236);
-			this.label15.Name = "label15";
-			this.label15.Size = new System.Drawing.Size(106, 16);
-			this.label15.TabIndex = 11;
-			this.label15.Text = "Yapılacak İşlem:";
 			// 
 			// label17
 			// 
@@ -327,9 +333,9 @@ namespace DisKilinigi.UI
 			this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.label20.Location = new System.Drawing.Point(19, 207);
 			this.label20.Name = "label20";
-			this.label20.Size = new System.Drawing.Size(132, 13);
+			this.label20.Size = new System.Drawing.Size(145, 13);
 			this.label20.TabIndex = 16;
-			this.label20.Text = "Hastanın Geliş Sebebi";
+			this.label20.Text = "Hastanın Detaylı Bilgileri";
 			// 
 			// label21
 			// 
@@ -353,10 +359,10 @@ namespace DisKilinigi.UI
 			// 
 			// mtxtHastaBilgileriTelefonNo
 			// 
-			this.mtxtHastaBilgileriTelefonNo.Location = new System.Drawing.Point(132, 169);
+			this.mtxtHastaBilgileriTelefonNo.Location = new System.Drawing.Point(145, 169);
 			this.mtxtHastaBilgileriTelefonNo.Mask = "00000000000";
 			this.mtxtHastaBilgileriTelefonNo.Name = "mtxtHastaBilgileriTelefonNo";
-			this.mtxtHastaBilgileriTelefonNo.Size = new System.Drawing.Size(210, 22);
+			this.mtxtHastaBilgileriTelefonNo.Size = new System.Drawing.Size(197, 22);
 			this.mtxtHastaBilgileriTelefonNo.TabIndex = 7;
 			// 
 			// mtxtHastaBilgileriDogumTarihi
@@ -385,15 +391,6 @@ namespace DisKilinigi.UI
 			this.txtHastaBilgileriHastaAdSoyad.ReadOnly = true;
 			this.txtHastaBilgileriHastaAdSoyad.Size = new System.Drawing.Size(210, 22);
 			this.txtHastaBilgileriHastaAdSoyad.TabIndex = 6;
-			// 
-			// clboxHastaBilgileri
-			// 
-			this.clboxHastaBilgileri.FormattingEnabled = true;
-			this.clboxHastaBilgileri.Location = new System.Drawing.Point(8, 20);
-			this.clboxHastaBilgileri.Name = "clboxHastaBilgileri";
-			this.clboxHastaBilgileri.Size = new System.Drawing.Size(350, 412);
-			this.clboxHastaBilgileri.TabIndex = 0;
-			this.clboxHastaBilgileri.SelectedIndexChanged += new System.EventHandler(this.clboxHastaBilgileri_SelectedIndexChanged);
 			// 
 			// tabPage3
 			// 
@@ -498,9 +495,10 @@ namespace DisKilinigi.UI
 			// chboxTumunuSec
 			// 
 			this.chboxTumunuSec.AutoSize = true;
+			this.chboxTumunuSec.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.chboxTumunuSec.Location = new System.Drawing.Point(364, 398);
 			this.chboxTumunuSec.Name = "chboxTumunuSec";
-			this.chboxTumunuSec.Size = new System.Drawing.Size(121, 20);
+			this.chboxTumunuSec.Size = new System.Drawing.Size(122, 23);
 			this.chboxTumunuSec.TabIndex = 7;
 			this.chboxTumunuSec.Text = "Tüm Dişleri Seç";
 			this.chboxTumunuSec.UseVisualStyleBackColor = true;
@@ -519,6 +517,7 @@ namespace DisKilinigi.UI
 			this.gbTedaviAtamasi.Controls.Add(this.label9);
 			this.gbTedaviAtamasi.Controls.Add(this.dtpRandevuTarihi);
 			this.gbTedaviAtamasi.Enabled = false;
+			this.gbTedaviAtamasi.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.gbTedaviAtamasi.Location = new System.Drawing.Point(546, 28);
 			this.gbTedaviAtamasi.Name = "gbTedaviAtamasi";
 			this.gbTedaviAtamasi.Size = new System.Drawing.Size(337, 382);
@@ -526,21 +525,13 @@ namespace DisKilinigi.UI
 			this.gbTedaviAtamasi.TabStop = false;
 			this.gbTedaviAtamasi.Text = "Tedavi Ataması";
 			// 
-			// picbDoktorResmi
-			// 
-			this.picbDoktorResmi.Location = new System.Drawing.Point(10, 246);
-			this.picbDoktorResmi.Name = "picbDoktorResmi";
-			this.picbDoktorResmi.Size = new System.Drawing.Size(130, 125);
-			this.picbDoktorResmi.TabIndex = 3;
-			this.picbDoktorResmi.TabStop = false;
-			// 
 			// btnRandevuOlustur
 			// 
-			this.btnRandevuOlustur.Location = new System.Drawing.Point(133, 191);
+			this.btnRandevuOlustur.Location = new System.Drawing.Point(133, 182);
 			this.btnRandevuOlustur.Name = "btnRandevuOlustur";
-			this.btnRandevuOlustur.Size = new System.Drawing.Size(192, 23);
+			this.btnRandevuOlustur.Size = new System.Drawing.Size(192, 36);
 			this.btnRandevuOlustur.TabIndex = 2;
-			this.btnRandevuOlustur.Text = "Randevusu Oluştur";
+			this.btnRandevuOlustur.Text = "Randevu Oluştur";
 			this.btnRandevuOlustur.UseVisualStyleBackColor = true;
 			this.btnRandevuOlustur.Click += new System.EventHandler(this.btnRandevuOlustur_Click);
 			// 
@@ -549,7 +540,7 @@ namespace DisKilinigi.UI
 			this.cmboxYapılacakIslem.FormattingEnabled = true;
 			this.cmboxYapılacakIslem.Location = new System.Drawing.Point(133, 134);
 			this.cmboxYapılacakIslem.Name = "cmboxYapılacakIslem";
-			this.cmboxYapılacakIslem.Size = new System.Drawing.Size(192, 24);
+			this.cmboxYapılacakIslem.Size = new System.Drawing.Size(192, 27);
 			this.cmboxYapılacakIslem.TabIndex = 0;
 			// 
 			// cmboxHastaAdi
@@ -557,7 +548,7 @@ namespace DisKilinigi.UI
 			this.cmboxHastaAdi.FormattingEnabled = true;
 			this.cmboxHastaAdi.Location = new System.Drawing.Point(133, 41);
 			this.cmboxHastaAdi.Name = "cmboxHastaAdi";
-			this.cmboxHastaAdi.Size = new System.Drawing.Size(192, 24);
+			this.cmboxHastaAdi.Size = new System.Drawing.Size(192, 27);
 			this.cmboxHastaAdi.TabIndex = 0;
 			// 
 			// cmboxIlgilenecekDoktor
@@ -565,15 +556,16 @@ namespace DisKilinigi.UI
 			this.cmboxIlgilenecekDoktor.FormattingEnabled = true;
 			this.cmboxIlgilenecekDoktor.Location = new System.Drawing.Point(133, 72);
 			this.cmboxIlgilenecekDoktor.Name = "cmboxIlgilenecekDoktor";
-			this.cmboxIlgilenecekDoktor.Size = new System.Drawing.Size(192, 24);
+			this.cmboxIlgilenecekDoktor.Size = new System.Drawing.Size(192, 27);
 			this.cmboxIlgilenecekDoktor.TabIndex = 0;
+			this.cmboxIlgilenecekDoktor.SelectedIndexChanged += new System.EventHandler(this.cmboxIlgilenecekDoktor_SelectedIndexChanged);
 			// 
 			// label13
 			// 
 			this.label13.AutoSize = true;
 			this.label13.Location = new System.Drawing.Point(7, 137);
 			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(106, 16);
+			this.label13.Size = new System.Drawing.Size(116, 19);
 			this.label13.TabIndex = 1;
 			this.label13.Text = "Yapılacak İşlem:";
 			// 
@@ -582,7 +574,7 @@ namespace DisKilinigi.UI
 			this.label10.AutoSize = true;
 			this.label10.Location = new System.Drawing.Point(7, 109);
 			this.label10.Name = "label10";
-			this.label10.Size = new System.Drawing.Size(102, 16);
+			this.label10.Size = new System.Drawing.Size(113, 19);
 			this.label10.TabIndex = 1;
 			this.label10.Text = "Randevu Tarihi:";
 			// 
@@ -591,7 +583,7 @@ namespace DisKilinigi.UI
 			this.label12.AutoSize = true;
 			this.label12.Location = new System.Drawing.Point(7, 42);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(69, 16);
+			this.label12.Size = new System.Drawing.Size(78, 19);
 			this.label12.TabIndex = 1;
 			this.label12.Text = "Hasta Adı:";
 			// 
@@ -600,7 +592,7 @@ namespace DisKilinigi.UI
 			this.label9.AutoSize = true;
 			this.label9.Location = new System.Drawing.Point(7, 75);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(118, 16);
+			this.label9.Size = new System.Drawing.Size(136, 19);
 			this.label9.TabIndex = 1;
 			this.label9.Text = "İlgilenecek Doktor:";
 			// 
@@ -608,8 +600,206 @@ namespace DisKilinigi.UI
 			// 
 			this.dtpRandevuTarihi.Location = new System.Drawing.Point(133, 103);
 			this.dtpRandevuTarihi.Name = "dtpRandevuTarihi";
-			this.dtpRandevuTarihi.Size = new System.Drawing.Size(192, 22);
+			this.dtpRandevuTarihi.Size = new System.Drawing.Size(192, 25);
 			this.dtpRandevuTarihi.TabIndex = 0;
+			// 
+			// tabPage4
+			// 
+			this.tabPage4.Controls.Add(this.groupBox1);
+			this.tabPage4.Controls.Add(this.btnRontgenRandevuOlustur);
+			this.tabPage4.Controls.Add(this.gbHastaKayitHastaBilgileri);
+			this.tabPage4.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.tabPage4.Location = new System.Drawing.Point(4, 25);
+			this.tabPage4.Name = "tabPage4";
+			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage4.Size = new System.Drawing.Size(958, 494);
+			this.tabPage4.TabIndex = 4;
+			this.tabPage4.Text = "Hasta İlk Muayene";
+			this.tabPage4.UseVisualStyleBackColor = true;
+			// 
+			// btnRontgenRandevuOlustur
+			// 
+			this.btnRontgenRandevuOlustur.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.btnRontgenRandevuOlustur.Location = new System.Drawing.Point(257, 387);
+			this.btnRontgenRandevuOlustur.Name = "btnRontgenRandevuOlustur";
+			this.btnRontgenRandevuOlustur.Size = new System.Drawing.Size(118, 37);
+			this.btnRontgenRandevuOlustur.TabIndex = 2;
+			this.btnRontgenRandevuOlustur.Text = "Röntgen Çek";
+			this.btnRontgenRandevuOlustur.UseVisualStyleBackColor = true;
+			this.btnRontgenRandevuOlustur.Click += new System.EventHandler(this.btnRontgenRandevuOlustur_Click);
+			// 
+			// gbHastaKayitHastaBilgileri
+			// 
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label7);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label4);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label6);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label3);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label2);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label11);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label5);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label1);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.mtxtHastanaIlkMuayeneTelefonNumarasi);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.mtxtHastanaIlkMuayeneDoğumTarihi);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.mtxtHastaKayitKimlikNo);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.txtHastaSikayet);
+			this.gbHastaKayitHastaBilgileri.Controls.Add(this.txtHastanaIlkMuayeneAdSoyad);
+			this.gbHastaKayitHastaBilgileri.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.gbHastaKayitHastaBilgileri.Location = new System.Drawing.Point(21, 16);
+			this.gbHastaKayitHastaBilgileri.Name = "gbHastaKayitHastaBilgileri";
+			this.gbHastaKayitHastaBilgileri.Size = new System.Drawing.Size(354, 365);
+			this.gbHastaKayitHastaBilgileri.TabIndex = 4;
+			this.gbHastaKayitHastaBilgileri.TabStop = false;
+			this.gbHastaKayitHastaBilgileri.Text = "Hasta Bilgileri";
+			// 
+			// label7
+			// 
+			this.label7.AutoSize = true;
+			this.label7.Location = new System.Drawing.Point(9, 271);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(65, 19);
+			this.label7.TabIndex = 4;
+			this.label7.Text = "Şikayeti:";
+			// 
+			// label4
+			// 
+			this.label4.AutoSize = true;
+			this.label4.Location = new System.Drawing.Point(6, 104);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(108, 19);
+			this.label4.TabIndex = 3;
+			this.label4.Text = "Doğum Tarihi :";
+			// 
+			// label6
+			// 
+			this.label6.AutoSize = true;
+			this.label6.Location = new System.Drawing.Point(6, 178);
+			this.label6.Name = "label6";
+			this.label6.Size = new System.Drawing.Size(135, 19);
+			this.label6.TabIndex = 3;
+			this.label6.Text = "Telefon Numarası :";
+			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(6, 78);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(127, 19);
+			this.label3.TabIndex = 3;
+			this.label3.Text = "Kimlik Numarası :";
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(6, 52);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(81, 19);
+			this.label2.TabIndex = 3;
+			this.label2.Text = "Ad Soyad :";
+			// 
+			// label11
+			// 
+			this.label11.AutoSize = true;
+			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label11.Location = new System.Drawing.Point(6, 254);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(132, 13);
+			this.label11.TabIndex = 3;
+			this.label11.Text = "Hastanın Geliş Sebebi";
+			// 
+			// label5
+			// 
+			this.label5.AutoSize = true;
+			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label5.Location = new System.Drawing.Point(6, 152);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(91, 13);
+			this.label5.TabIndex = 3;
+			this.label5.Text = "İletişim Bilgileri";
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label1.Location = new System.Drawing.Point(6, 28);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(85, 13);
+			this.label1.TabIndex = 3;
+			this.label1.Text = "Kişisel Bilgiler";
+			// 
+			// mtxtHastanaIlkMuayeneTelefonNumarasi
+			// 
+			this.mtxtHastanaIlkMuayeneTelefonNumarasi.Location = new System.Drawing.Point(134, 172);
+			this.mtxtHastanaIlkMuayeneTelefonNumarasi.Mask = "(999) 000-0000";
+			this.mtxtHastanaIlkMuayeneTelefonNumarasi.Name = "mtxtHastanaIlkMuayeneTelefonNumarasi";
+			this.mtxtHastanaIlkMuayeneTelefonNumarasi.Size = new System.Drawing.Size(195, 25);
+			this.mtxtHastanaIlkMuayeneTelefonNumarasi.TabIndex = 1;
+			// 
+			// mtxtHastanaIlkMuayeneDoğumTarihi
+			// 
+			this.mtxtHastanaIlkMuayeneDoğumTarihi.Location = new System.Drawing.Point(119, 101);
+			this.mtxtHastanaIlkMuayeneDoğumTarihi.Mask = "00/00/0000";
+			this.mtxtHastanaIlkMuayeneDoğumTarihi.Name = "mtxtHastanaIlkMuayeneDoğumTarihi";
+			this.mtxtHastanaIlkMuayeneDoğumTarihi.Size = new System.Drawing.Size(210, 25);
+			this.mtxtHastanaIlkMuayeneDoğumTarihi.TabIndex = 1;
+			this.mtxtHastanaIlkMuayeneDoğumTarihi.ValidatingType = typeof(System.DateTime);
+			// 
+			// mtxtHastaKayitKimlikNo
+			// 
+			this.mtxtHastaKayitKimlikNo.Location = new System.Drawing.Point(119, 75);
+			this.mtxtHastaKayitKimlikNo.Mask = "00000000000";
+			this.mtxtHastaKayitKimlikNo.Name = "mtxtHastaKayitKimlikNo";
+			this.mtxtHastaKayitKimlikNo.Size = new System.Drawing.Size(210, 25);
+			this.mtxtHastaKayitKimlikNo.TabIndex = 1;
+			this.mtxtHastaKayitKimlikNo.ValidatingType = typeof(int);
+			// 
+			// txtHastaSikayet
+			// 
+			this.txtHastaSikayet.Location = new System.Drawing.Point(119, 271);
+			this.txtHastaSikayet.Multiline = true;
+			this.txtHastaSikayet.Name = "txtHastaSikayet";
+			this.txtHastaSikayet.Size = new System.Drawing.Size(210, 88);
+			this.txtHastaSikayet.TabIndex = 0;
+			// 
+			// txtHastanaIlkMuayeneAdSoyad
+			// 
+			this.txtHastanaIlkMuayeneAdSoyad.Location = new System.Drawing.Point(119, 49);
+			this.txtHastanaIlkMuayeneAdSoyad.Name = "txtHastanaIlkMuayeneAdSoyad";
+			this.txtHastanaIlkMuayeneAdSoyad.Size = new System.Drawing.Size(210, 25);
+			this.txtHastanaIlkMuayeneAdSoyad.TabIndex = 0;
+			// 
+			// tabControl1
+			// 
+			this.tabControl1.Controls.Add(this.tabPage4);
+			this.tabControl1.Controls.Add(this.tabPage2);
+			this.tabControl1.Controls.Add(this.tabPage3);
+			this.tabControl1.Controls.Add(this.tabPage1);
+			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.tabControl1.Location = new System.Drawing.Point(0, 0);
+			this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+			this.tabControl1.Name = "tabControl1";
+			this.tabControl1.SelectedIndex = 0;
+			this.tabControl1.Size = new System.Drawing.Size(966, 523);
+			this.tabControl1.TabIndex = 0;
+			this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+			// 
+			// pbRontgen
+			// 
+			this.pbRontgen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+			this.pbRontgen.Image = global::DisKilinigi.UI.Properties.Resources._2018_11_03_22_24_45;
+			this.pbRontgen.Location = new System.Drawing.Point(24, 40);
+			this.pbRontgen.Name = "pbRontgen";
+			this.pbRontgen.Size = new System.Drawing.Size(401, 256);
+			this.pbRontgen.TabIndex = 5;
+			this.pbRontgen.TabStop = false;
+			// 
+			// picbDoktorResmi
+			// 
+			this.picbDoktorResmi.Location = new System.Drawing.Point(10, 246);
+			this.picbDoktorResmi.Name = "picbDoktorResmi";
+			this.picbDoktorResmi.Size = new System.Drawing.Size(130, 125);
+			this.picbDoktorResmi.TabIndex = 3;
+			this.picbDoktorResmi.TabStop = false;
 			// 
 			// gbSikayetiOlanDisler
 			// 
@@ -647,6 +837,7 @@ namespace DisKilinigi.UI
 			this.gbSikayetiOlanDisler.Controls.Add(this.cboxDis18);
 			this.gbSikayetiOlanDisler.Controls.Add(this.cboxDis17);
 			this.gbSikayetiOlanDisler.Controls.Add(this.cboxDis1);
+			this.gbSikayetiOlanDisler.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.gbSikayetiOlanDisler.Location = new System.Drawing.Point(29, 21);
 			this.gbSikayetiOlanDisler.Name = "gbSikayetiOlanDisler";
 			this.gbSikayetiOlanDisler.Size = new System.Drawing.Size(456, 371);
@@ -942,197 +1133,16 @@ namespace DisKilinigi.UI
 			this.cboxDis1.TabIndex = 6;
 			this.cboxDis1.UseVisualStyleBackColor = true;
 			// 
-			// tabPage4
+			// groupBox1
 			// 
-			this.tabPage4.Controls.Add(this.btnRontgenRandevuOlustur);
-			this.tabPage4.Controls.Add(this.gbHastaKayitHastaBilgileri);
-			this.tabPage4.Location = new System.Drawing.Point(4, 25);
-			this.tabPage4.Name = "tabPage4";
-			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage4.Size = new System.Drawing.Size(958, 494);
-			this.tabPage4.TabIndex = 4;
-			this.tabPage4.Text = "Hasta İlk Muayene";
-			this.tabPage4.UseVisualStyleBackColor = true;
-			// 
-			// btnRontgenRandevuOlustur
-			// 
-			this.btnRontgenRandevuOlustur.Location = new System.Drawing.Point(257, 387);
-			this.btnRontgenRandevuOlustur.Name = "btnRontgenRandevuOlustur";
-			this.btnRontgenRandevuOlustur.Size = new System.Drawing.Size(118, 23);
-			this.btnRontgenRandevuOlustur.TabIndex = 2;
-			this.btnRontgenRandevuOlustur.Text = "Röntgen Çek";
-			this.btnRontgenRandevuOlustur.UseVisualStyleBackColor = true;
-			this.btnRontgenRandevuOlustur.Click += new System.EventHandler(this.btnRontgenRandevuOlustur_Click);
-			// 
-			// gbHastaKayitHastaBilgileri
-			// 
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label7);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label4);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label6);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label3);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label2);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label11);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label5);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.label1);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.mtxtHastanaIlkMuayeneTelefonNumarasi);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.mtxtHastanaIlkMuayeneDoğumTarihi);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.mtxtHastaKayitKimlikNo);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.txtHastaSikayet);
-			this.gbHastaKayitHastaBilgileri.Controls.Add(this.txtHastanaIlkMuayeneAdSoyad);
-			this.gbHastaKayitHastaBilgileri.Location = new System.Drawing.Point(21, 16);
-			this.gbHastaKayitHastaBilgileri.Name = "gbHastaKayitHastaBilgileri";
-			this.gbHastaKayitHastaBilgileri.Size = new System.Drawing.Size(354, 365);
-			this.gbHastaKayitHastaBilgileri.TabIndex = 4;
-			this.gbHastaKayitHastaBilgileri.TabStop = false;
-			this.gbHastaKayitHastaBilgileri.Text = "Hasta Bilgileri";
-			// 
-			// label7
-			// 
-			this.label7.AutoSize = true;
-			this.label7.Location = new System.Drawing.Point(9, 271);
-			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(58, 16);
-			this.label7.TabIndex = 4;
-			this.label7.Text = "Şikayeti:";
-			// 
-			// label4
-			// 
-			this.label4.AutoSize = true;
-			this.label4.Location = new System.Drawing.Point(6, 104);
-			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(94, 16);
-			this.label4.TabIndex = 3;
-			this.label4.Text = "Doğum Tarihi :";
-			// 
-			// label6
-			// 
-			this.label6.AutoSize = true;
-			this.label6.Location = new System.Drawing.Point(6, 178);
-			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(120, 16);
-			this.label6.TabIndex = 3;
-			this.label6.Text = "Telefon Numarası :";
-			// 
-			// label3
-			// 
-			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(6, 78);
-			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(109, 16);
-			this.label3.TabIndex = 3;
-			this.label3.Text = "Kimlik Numarası :";
-			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(6, 52);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(73, 16);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "Ad Soyad :";
-			// 
-			// label11
-			// 
-			this.label11.AutoSize = true;
-			this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.label11.Location = new System.Drawing.Point(6, 254);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(132, 13);
-			this.label11.TabIndex = 3;
-			this.label11.Text = "Hastanın Geliş Sebebi";
-			// 
-			// label5
-			// 
-			this.label5.AutoSize = true;
-			this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.label5.Location = new System.Drawing.Point(6, 152);
-			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(91, 13);
-			this.label5.TabIndex = 3;
-			this.label5.Text = "İletişim Bilgileri";
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.label1.Location = new System.Drawing.Point(6, 28);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(85, 13);
-			this.label1.TabIndex = 3;
-			this.label1.Text = "Kişisel Bilgiler";
-			// 
-			// mtxtHastanaIlkMuayeneTelefonNumarasi
-			// 
-			this.mtxtHastanaIlkMuayeneTelefonNumarasi.Location = new System.Drawing.Point(119, 175);
-			this.mtxtHastanaIlkMuayeneTelefonNumarasi.Mask = "00000000000";
-			this.mtxtHastanaIlkMuayeneTelefonNumarasi.Name = "mtxtHastanaIlkMuayeneTelefonNumarasi";
-			this.mtxtHastanaIlkMuayeneTelefonNumarasi.Size = new System.Drawing.Size(210, 22);
-			this.mtxtHastanaIlkMuayeneTelefonNumarasi.TabIndex = 1;
-			// 
-			// mtxtHastanaIlkMuayeneDoğumTarihi
-			// 
-			this.mtxtHastanaIlkMuayeneDoğumTarihi.Location = new System.Drawing.Point(119, 101);
-			this.mtxtHastanaIlkMuayeneDoğumTarihi.Mask = "00/00/0000";
-			this.mtxtHastanaIlkMuayeneDoğumTarihi.Name = "mtxtHastanaIlkMuayeneDoğumTarihi";
-			this.mtxtHastanaIlkMuayeneDoğumTarihi.Size = new System.Drawing.Size(210, 22);
-			this.mtxtHastanaIlkMuayeneDoğumTarihi.TabIndex = 1;
-			this.mtxtHastanaIlkMuayeneDoğumTarihi.ValidatingType = typeof(System.DateTime);
-			// 
-			// mtxtHastaKayitKimlikNo
-			// 
-			this.mtxtHastaKayitKimlikNo.Location = new System.Drawing.Point(119, 75);
-			this.mtxtHastaKayitKimlikNo.Mask = "00000000000";
-			this.mtxtHastaKayitKimlikNo.Name = "mtxtHastaKayitKimlikNo";
-			this.mtxtHastaKayitKimlikNo.Size = new System.Drawing.Size(210, 22);
-			this.mtxtHastaKayitKimlikNo.TabIndex = 1;
-			// 
-			// txtHastaSikayet
-			// 
-			this.txtHastaSikayet.Location = new System.Drawing.Point(119, 271);
-			this.txtHastaSikayet.Multiline = true;
-			this.txtHastaSikayet.Name = "txtHastaSikayet";
-			this.txtHastaSikayet.Size = new System.Drawing.Size(210, 88);
-			this.txtHastaSikayet.TabIndex = 0;
-			// 
-			// txtHastanaIlkMuayeneAdSoyad
-			// 
-			this.txtHastanaIlkMuayeneAdSoyad.Location = new System.Drawing.Point(119, 49);
-			this.txtHastanaIlkMuayeneAdSoyad.Name = "txtHastanaIlkMuayeneAdSoyad";
-			this.txtHastanaIlkMuayeneAdSoyad.Size = new System.Drawing.Size(210, 22);
-			this.txtHastanaIlkMuayeneAdSoyad.TabIndex = 0;
-			// 
-			// tabControl1
-			// 
-			this.tabControl1.Controls.Add(this.tabPage4);
-			this.tabControl1.Controls.Add(this.tabPage2);
-			this.tabControl1.Controls.Add(this.tabPage3);
-			this.tabControl1.Controls.Add(this.tabPage1);
-			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.tabControl1.Location = new System.Drawing.Point(0, 0);
-			this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
-			this.tabControl1.Name = "tabControl1";
-			this.tabControl1.SelectedIndex = 0;
-			this.tabControl1.Size = new System.Drawing.Size(966, 523);
-			this.tabControl1.TabIndex = 0;
-			this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-			// 
-			// flplist
-			// 
-			this.flplist.Location = new System.Drawing.Point(736, 42);
-			this.flplist.Name = "flplist";
-			this.flplist.Size = new System.Drawing.Size(200, 334);
-			this.flplist.TabIndex = 26;
-			// 
-			// btnHastaGetir
-			// 
-			this.btnHastaGetir.Location = new System.Drawing.Point(255, 439);
-			this.btnHastaGetir.Name = "btnHastaGetir";
-			this.btnHastaGetir.Size = new System.Drawing.Size(75, 23);
-			this.btnHastaGetir.TabIndex = 27;
-			this.btnHastaGetir.Text = "button1";
-			this.btnHastaGetir.UseVisualStyleBackColor = true;
-			this.btnHastaGetir.Click += new System.EventHandler(this.btnHastaGetir_Click);
+			this.groupBox1.Controls.Add(this.pbRontgen);
+			this.groupBox1.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.groupBox1.Location = new System.Drawing.Point(404, 25);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(442, 320);
+			this.groupBox1.TabIndex = 6;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Hasta Röntgen Kaydı";
 			// 
 			// FrmGenelPencerei
 			// 
@@ -1153,12 +1163,14 @@ namespace DisKilinigi.UI
 			this.tabPage2.PerformLayout();
 			this.gbTedaviAtamasi.ResumeLayout(false);
 			this.gbTedaviAtamasi.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.picbDoktorResmi)).EndInit();
-			this.gbSikayetiOlanDisler.ResumeLayout(false);
 			this.tabPage4.ResumeLayout(false);
 			this.gbHastaKayitHastaBilgileri.ResumeLayout(false);
 			this.gbHastaKayitHastaBilgileri.PerformLayout();
 			this.tabControl1.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pbRontgen)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.picbDoktorResmi)).EndInit();
+			this.gbSikayetiOlanDisler.ResumeLayout(false);
+			this.groupBox1.ResumeLayout(false);
 			this.ResumeLayout(false);
 
         }
@@ -1176,9 +1188,7 @@ namespace DisKilinigi.UI
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox cmboxHastaBilgileriTedaviDurumu;
         private System.Windows.Forms.ComboBox cmboxHastaBilgileriKanGrubu;
-        private System.Windows.Forms.ComboBox cmboxHastaBilgileriGelisSebebi;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -1189,7 +1199,6 @@ namespace DisKilinigi.UI
         private System.Windows.Forms.MaskedTextBox mtxtHastaBilgileriDogumTarihi;
         private System.Windows.Forms.MaskedTextBox mtxtHastaBilgileriKimlikNumarası;
         private System.Windows.Forms.TextBox txtHastaBilgileriHastaAdSoyad;
-        private System.Windows.Forms.CheckedListBox clboxHastaBilgileri;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnOdemeAl;
         private System.Windows.Forms.Label lblRandevuBİlgileri;
@@ -1266,5 +1275,7 @@ namespace DisKilinigi.UI
 		private System.Windows.Forms.ColumnHeader columnHeader7;
 		private System.Windows.Forms.FlowLayoutPanel flplist;
 		private System.Windows.Forms.Button btnHastaGetir;
+		private System.Windows.Forms.PictureBox pbRontgen;
+		private System.Windows.Forms.GroupBox groupBox1;
 	}
 }
