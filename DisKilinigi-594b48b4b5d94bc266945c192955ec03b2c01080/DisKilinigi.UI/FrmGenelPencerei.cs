@@ -323,13 +323,7 @@ namespace DisKilinigi.UI
 				MessageBox.Show($"{islemUcreti} tutarındaki ücret alınmıştır.");
 				islemUcreti = 0;
 
-				foreach (Randevu item in randevuListesi)
-				{
-					if (listedeSecilenIndis.Tag == item)
-					{
-						item.RandevuDurumu = false;
-					}
-				}
+				randevuListesi.Find(r => r == listedeSecilenIndis.Tag as Randevu).RandevuDurumu = false ;
 				lvHastaBilgileri.Items.Remove(listedeSecilenIndis);
 			}
 		}
