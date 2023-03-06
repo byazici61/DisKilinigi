@@ -49,7 +49,7 @@ namespace DisKilinigi.UI
 
             foreach (Randevu item in randevuListesi)
             {
-	            if (item.Hasta.HastaAdSoyad.ToLower().Contains(aranilanKelime.ToLower()))
+	            if (txtAranacakAd.Text != null && item.Hasta.HastaAdSoyad.ToLower().Contains(aranilanKelime.ToLower()))
                 {
                     TabloyuDoldur(item);
                 }
@@ -66,7 +66,7 @@ namespace DisKilinigi.UI
             lvTumHastalar.Items.Clear();
             foreach (Randevu item in randevuListesi)
             {
-                if (cmbDoktorlar.SelectedItem.ToString()==item.Doktor.DoktorAdSoyad)
+                if ( cmbDoktorlar.SelectedItem != null &&cmbDoktorlar.SelectedItem.ToString()==item.Doktor.DoktorAdSoyad)
                 {
                     TabloyuDoldur(item);
                 }
@@ -83,7 +83,7 @@ namespace DisKilinigi.UI
             lvTumHastalar.Items.Clear();
             foreach (Randevu item in randevuListesi)
             {
-	            if (cmbTedaviDurumu.SelectedIndex == 0 && item.RandevuDurumu == true)
+	            if (cmbTedaviDurumu.SelectedItem != null &&cmbTedaviDurumu.SelectedIndex == 0 && item.RandevuDurumu)
                 {
                     TabloyuDoldur(item);
                 }
