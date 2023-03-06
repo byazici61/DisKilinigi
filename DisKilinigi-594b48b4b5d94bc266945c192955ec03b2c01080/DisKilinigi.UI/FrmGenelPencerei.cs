@@ -39,9 +39,9 @@ namespace DisKilinigi.UI
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+		private void tabHastaIslemleri_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			if (tabControl1.SelectedIndex == 1)
+			if (tabHastaIslemleri.SelectedIndex == 1)
 			{
 				cmboxHastaAdi.Items.Clear();
 				cmboxIlgilenecekDoktor.Items.Clear();
@@ -51,7 +51,7 @@ namespace DisKilinigi.UI
 				cmboxHastaAdi.Items.AddRange(hastaListesi.ToArray());
 				cmboxIlgilenecekDoktor.Items.AddRange(doktorListesi.ToArray());
 			}
-			if (tabControl1.SelectedIndex == 2)
+			if (tabHastaIslemleri.SelectedIndex == 2)
 			{
 				lvHastaBilgileri.Items.Clear();
 				foreach (Randevu item in randevuListesi)
@@ -71,7 +71,7 @@ namespace DisKilinigi.UI
 					}
 				}
 			}
-			if (tabControl1.SelectedIndex == 3)
+			if (tabHastaIslemleri.SelectedIndex == 3)
 			{
 				flplist.Controls.Clear();
 				foreach (Randevu item in randevuListesi)
@@ -83,8 +83,8 @@ namespace DisKilinigi.UI
 				}
 
 			}
-
 		}
+
 
 		#region Hasta İlk Kayıt Ekranı
 
@@ -95,7 +95,7 @@ namespace DisKilinigi.UI
 		/// <param name="e"></param>
 		private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
 		{
-			
+
 			if (HastaIlkKayitValidasyon())
 			{
 				pbRontgen.Visible = true;
@@ -132,7 +132,7 @@ namespace DisKilinigi.UI
 		}
 
 		#endregion
-		
+
 		#region Tedavi Planlaması Ekranı
 
 		/// <summary>
@@ -170,7 +170,7 @@ namespace DisKilinigi.UI
 			{
 				MessageBox.Show("Lütfen tüm bilgileri eksiksiz girdiğinizden emin olunuz!");
 			}
-			
+
 		}
 
 		/// <summary>
@@ -259,11 +259,11 @@ namespace DisKilinigi.UI
 		private bool HastaIlkKayitValidasyon()
 		{
 			return txtHastanaIlkMuayeneAdSoyad.Text.StringDegerAdSoyadKontrolu()
-			       && ExtensionMethod.StringDegerinNullVeyaBoslukOlupOlmamaDurumu(txtHastaSikayet.Text,
-				      mtxtHastanaIlkMuayeneDoğumTarihi.Text,
-				       mtxtHastaKayitKimlikNo.Text, mtxtHastanaIlkMuayeneTelefonNumarasi.Text)
-			       && mtxtHastaKayitKimlikNo.Text.TCKimlikNoDogruFormattaMi()
-			       && mtxtHastanaIlkMuayeneTelefonNumarasi.Text.TelefonNoFormatKontrolu();
+				   && ExtensionMethod.StringDegerinNullVeyaBoslukOlupOlmamaDurumu(txtHastaSikayet.Text,
+					  mtxtHastanaIlkMuayeneDoğumTarihi.Text,
+					   mtxtHastaKayitKimlikNo.Text, mtxtHastanaIlkMuayeneTelefonNumarasi.Text)
+				   && mtxtHastaKayitKimlikNo.Text.TCKimlikNoDogruFormattaMi()
+				   && mtxtHastanaIlkMuayeneTelefonNumarasi.Text.TelefonNoFormatKontrolu();
 		}
 
 		public bool RandevuOlusturmaValidasyon()
@@ -300,16 +300,30 @@ namespace DisKilinigi.UI
 			return disler;
 		}
 
+		/// <summary>
+		/// randevu ekran formunu temizler
+		/// </summary>
 		void RandevuEkranFormuTemizle()
 		{
 			foreach (Control item in gbTedaviAtamasi.Controls)
 			{
-				if(item is ComboBox) item.Text = null;
+				if (item is ComboBox) item.Text = null;
 			}
 
 			foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
 			{
 				item.Checked = false;
+			}
+		}
+
+		/// <summary>
+		/// hasta bilgileri ekranindaki gboxi temizler
+		/// </summary>
+		void HastaBilgileriEkraniGboxTemizle()
+		{
+			foreach (Control item in gbHastaBilgileriHastaBilgileri.Controls)
+			{
+				if (item is ComboBox || item is TextBox || item is MaskedTextBox) item.Text = null;
 			}
 		}
 
@@ -336,7 +350,7 @@ namespace DisKilinigi.UI
 				MessageBox.Show($"{islemUcreti} tutarındaki ücret alınmıştır.");
 				islemUcreti = 0;
 
-				randevuListesi.Find(r => r == listedeSecilenIndis.Tag as Randevu).RandevuDurumu = false ;
+				randevuListesi.Find(r => r == listedeSecilenIndis.Tag as Randevu).RandevuDurumu = false;
 				lvHastaBilgileri.Items.Remove(listedeSecilenIndis);
 			}
 		}
@@ -370,9 +384,11 @@ namespace DisKilinigi.UI
 
 			randevuListesi[hastaIndis].Hasta.TelefonNumarasi = mtxtHastaBilgileriTelefonNo.Text;
 			randevuListesi[hastaIndis].Hasta.EkstraAciklama = txtHastaBilgileriEkstraBilgiler.Text;
-			randevuListesi[hastaIndis].Hasta.KanGrubu = cmboxHastaBilgileriKanGrubu.SelectedItem.ToString();
-			MessageBox.Show(randevuListesi[hastaIndis].Hasta.TelefonNumarasi + randevuListesi[hastaIndis].Hasta.EkstraAciklama + randevuListesi[hastaIndis].Hasta.KanGrubu);
-
+			if (cmboxHastaBilgileriKanGrubu.SelectedItem != null)
+			{
+				randevuListesi[hastaIndis].Hasta.KanGrubu = cmboxHastaBilgileriKanGrubu.SelectedItem.ToString();
+			}
+			MessageBox.Show("Bilgiler güncellendi!");
 		}
 
 		/// <summary>
@@ -395,12 +411,13 @@ namespace DisKilinigi.UI
 		/// <param name="e"></param>
 		private void btnHastaGetir_Click(object sender, EventArgs e)
 		{
+			HastaBilgileriEkraniGboxTemizle();
 			flplist.Enabled = true;
 			foreach (RadioButton item in flplist.Controls)
 			{
-				if (item.Checked)
+				foreach (Randevu item1 in randevuListesi)
 				{
-					foreach (Randevu item1 in randevuListesi)
+					if (item.Checked && item.Tag == item1)
 					{
 						txtHastaBilgileriHastaAdSoyad.Text = item1.Hasta.ToString();
 						mtxtHastaBilgileriKimlikNumarası.Text = item1.Hasta.KimlikNumarasi;
@@ -409,12 +426,16 @@ namespace DisKilinigi.UI
 						txtHastaBilgileriEkstraBilgiler.Text = item1.Hasta.EkstraAciklama;
 						hastaIndis++;
 					}
+						
 				}
+
 			}
 		}
 
+
 		#endregion
 
+		
 	}
 
 }

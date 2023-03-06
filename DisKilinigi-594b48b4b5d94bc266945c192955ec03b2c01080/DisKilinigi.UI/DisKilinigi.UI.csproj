@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Doktor.cs" />
-    <Compile Include="Common\ExtensionMethod.cs" />
+    <Compile Include="Common\ValidationTool\ExtensionMethod.cs" />
     <Compile Include="Common\Hasta.cs" />
     <Compile Include="Common\Islem.cs" />
     <Compile Include="Common\Randevu.cs" />
@@ -120,5 +120,6 @@
     <Content Include="Resources\yekta.png" />
     <Content Include="Resources\zahide.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
