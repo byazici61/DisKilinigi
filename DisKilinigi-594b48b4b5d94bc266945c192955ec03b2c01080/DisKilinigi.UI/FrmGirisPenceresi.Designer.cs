@@ -29,44 +29,45 @@ namespace DisKilinigi.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGiris = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // btnGiris
-            // 
-            this.btnGiris.Location = new System.Drawing.Point(266, 414);
-            this.btnGiris.Name = "btnGiris";
-            this.btnGiris.Size = new System.Drawing.Size(167, 23);
-            this.btnGiris.TabIndex = 0;
-            this.btnGiris.Text = "GİRİŞ";
-            this.btnGiris.UseVisualStyleBackColor = true;
-            this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Script MT Bold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(93, 195);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(504, 58);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "SLYTHERİN DİŞ KLİNİĞİ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // FrmGirisPenceresi
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
-            this.BackgroundImage = global::DisKilinigi.UI.Properties.Resources.dental;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(698, 483);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnGiris);
-            this.Name = "FrmGirisPenceresi";
-            this.Text = "FrmGirisPenceresi";
-            this.ResumeLayout(false);
+			this.btnGiris = new System.Windows.Forms.Button();
+			this.label1 = new System.Windows.Forms.Label();
+			this.SuspendLayout();
+			// 
+			// btnGiris
+			// 
+			this.btnGiris.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.btnGiris.Location = new System.Drawing.Point(247, 414);
+			this.btnGiris.Name = "btnGiris";
+			this.btnGiris.Size = new System.Drawing.Size(206, 33);
+			this.btnGiris.TabIndex = 0;
+			this.btnGiris.Text = "GİRİŞ";
+			this.btnGiris.UseVisualStyleBackColor = true;
+			this.btnGiris.Click += new System.EventHandler(this.btnGiris_Click);
+			// 
+			// label1
+			// 
+			this.label1.BackColor = System.Drawing.Color.Transparent;
+			this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label1.Location = new System.Drawing.Point(93, 195);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(504, 58);
+			this.label1.TabIndex = 1;
+			this.label1.Text = "SLYTHERIN DİŞ KLİNİĞİ";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// FrmGirisPenceresi
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.SystemColors.Info;
+			this.BackgroundImage = global::DisKilinigi.UI.Properties.Resources.dental;
+			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.ClientSize = new System.Drawing.Size(698, 483);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.btnGiris);
+			this.Name = "FrmGirisPenceresi";
+			this.Text = "SLYTHERIN DİŞ KLİNİĞİ";
+			this.ResumeLayout(false);
 
         }
 

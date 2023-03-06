@@ -18,11 +18,8 @@ namespace DisKilinigi.UI
 		List<Hasta> hastaListesi = new List<Hasta>();
 		List<Doktor> doktorListesi = new List<Doktor>();
 		List<Randevu> randevuListesi = new List<Randevu>();
-
-		//List<string> islemYapilacakDisAdlari = new List<string>();
 		string islemYapilacakDisAdlari = "";
 		double islemUcreti;
-
 
 		public FrmGenelPencerei()
 		{
@@ -36,21 +33,7 @@ namespace DisKilinigi.UI
 		}
 
 
-		/// <summary>
-		/// Doktorları, kotor nesnesi ile Dolduran Fonksiyon
-		/// </summary>
-		private void DoktorlariOlustur()
-		{
-			doktorListesi.AddRange(new List<Doktor>()
-			{
-				new Doktor() {DoktorAdSoyad="Melike Memiş",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Batuhan Yazıcı",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Berkay Engin",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Ela Güler",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Zahide Uzun",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-				new Doktor() {DoktorAdSoyad="Yekta Büyükkaya",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
-			});
-		}
+		#region Hasta İlk Kayıt Ekranı
 
 		/// <summary>
 		/// Hastaları hastlar listesine kaydeder
@@ -79,7 +62,21 @@ namespace DisKilinigi.UI
 			}
 		}
 
+		/// <summary>
+		/// yeni hasta kaydi girilmesi icin formu temizler
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnYeniHastaKayit_Click(object sender, EventArgs e)
+		{
+			txtHastanaIlkMuayeneAdSoyad.Text = mtxtHastanaIlkMuayeneDoğumTarihi.Text =
+				mtxtHastanaIlkMuayeneTelefonNumarasi.Text = mtxtHastaKayitKimlikNo.Text = txtHastaSikayet.Text = null;
+			pbRontgen.Visible = false;
+		}
 
+		#endregion
+		
+		#region Tedavi Planlaması Ekranı
 
 		/// <summary>
 		/// Randevu tipinde nesneler oluşturup randevu istesine atar
@@ -107,12 +104,126 @@ namespace DisKilinigi.UI
 				Islem = cmboxYapılacakIslem.SelectedItem as Islem,
 				RandevuDurumu = true,
 				Disler = dizi,
-
-
-
 			});
+			MessageBox.Show("Randevu başarıyla oluşturuldu!");
 
 		}
+
+		/// <summary>
+		/// tedavi planlanacak dişlerin tamamını tek seferde secer ve geri alindiginda secimlerin tamamini kaldirir.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void chboxTumunuSec_CheckStateChanged(object sender, EventArgs e)
+		{
+			if (chboxTumunuSec.Checked)
+			{
+				foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+				{
+					item.Checked = true;
+				}
+			}
+			else
+			{
+				foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+				{
+					item.Checked = false;
+				}
+			}
+
+		}
+
+		/// <summary>
+		/// secilen doktorun fotografini getirir
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void cmboxIlgilenecekDoktor_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (cmboxIlgilenecekDoktor.SelectedIndex == 0)
+			{
+				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\melike hoca.png");
+			}
+			if (cmboxIlgilenecekDoktor.SelectedIndex == 1)
+			{
+				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\batu.png");
+			}
+			if (cmboxIlgilenecekDoktor.SelectedIndex == 2)
+			{
+				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\berkay.png");
+			}
+			if (cmboxIlgilenecekDoktor.SelectedIndex == 3)
+			{
+				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\ela.png");
+			}
+			if (cmboxIlgilenecekDoktor.SelectedIndex == 4)
+			{
+				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\yekta.png");
+			}
+			if (cmboxIlgilenecekDoktor.SelectedIndex == 5)
+			{
+				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\zahide.png");
+			}
+
+		}
+
+
+		#endregion
+
+		#region Metotlar
+
+		/// <summary>
+		/// Doktorları, kotor nesnesi ile Dolduran Fonksiyon
+		/// </summary>
+		private void DoktorlariOlustur()
+		{
+			doktorListesi.AddRange(new List<Doktor>()
+			{
+				new Doktor() {DoktorAdSoyad="Melike Memiş",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Batuhan Yazıcı",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Berkay Engin",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Ela Güler",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Zahide Uzun",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+				new Doktor() {DoktorAdSoyad="Yekta Büyükkaya",MezuniyetUniversitesi="...",UzmanlikAlani="..." },
+			});
+		}
+
+		/// <summary>
+		/// textboxlarin ve mtextboxlarin girilen degerlerininin uygunlugunu kontrol eder.
+		/// </summary>
+		/// <returns></returns>
+		private bool Validasyon()
+		{
+			return true;
+		}
+
+		/// <summary>
+		/// yapılacak işlemler combobaxını doldurur.
+		/// </summary>
+		public void HastayaYapilacakIslemleriOlustur()
+		{
+			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Dolgu", IslemUcreti = 100 });
+			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Kanal Tedavisi", IslemUcreti = 500 });
+			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Beyazlatma", IslemUcreti = 100 });
+			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Taşı Temizliği", IslemUcreti = 100 });
+			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "İmplant", IslemUcreti = 100 });
+			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Teli", IslemUcreti = 100 });
+		}
+
+		private string DiziyiStringeCevir(string[] dizi)
+		{
+			string disler = "";
+			foreach (string item in dizi)
+			{
+				disler += item + " ";
+			}
+			return disler;
+		}
+
+
+		#endregion
+
+		#region Ödeme Ekranı
 
 		/// <summary>
 		/// Toplam islem ücretine göre ödeme alma fonksiyonu
@@ -132,55 +243,96 @@ namespace DisKilinigi.UI
 					if (listedeSecilenIndis.Tag == item)
 					{
 						item.RandevuDurumu = false;
-
 					}
 				}
-
 				lvHastaBilgileri.Items.Remove(listedeSecilenIndis);
 			}
 		}
 
-		private void btnHastaBilgileriİslemGorecekDisleriDuzenle_Click(object sender, EventArgs e)
-		{
 
+
+
+		#endregion
+
+		#region Rapor Ekranı
+
+		ListViewItem listedeSecilenIndis;
+		private void lvHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (lvHastaBilgileri.SelectedItems.Count > 0)
+			{
+				listedeSecilenIndis = lvHastaBilgileri.SelectedItems[0];
+				lblRandevuBİlgileri.Text = listedeSecilenIndis.Tag.ToString();
+				islemUcreti = double.Parse(listedeSecilenIndis.SubItems[6].Text);
+			}
 		}
 
+
+		#endregion
+
+		#region Hasta  Bilgilerini Detaylı Görme Ekranı
+
+		/// <summary>
+		/// hasta bilgilerini günceller. kan grubu ve ekstra eklenmek istenen not kismi degistirilebilir. ad soyad ve diger hasta bilgileri degistirilmez.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnHastaBilgileriKaydet_Click(object sender, EventArgs e)
 		{
 
 			randevuListesi[hastaIndis].Hasta.TelefonNumarasi = mtxtHastaBilgileriTelefonNo.Text;
 			randevuListesi[hastaIndis].Hasta.EkstraAciklama = txtHastaBilgileriEkstraBilgiler.Text;
-			randevuListesi[hastaIndis].Hasta.KanGrubu =  cmboxHastaBilgileriKanGrubu.SelectedItem.ToString();
+			randevuListesi[hastaIndis].Hasta.KanGrubu = cmboxHastaBilgileriKanGrubu.SelectedItem.ToString();
 			MessageBox.Show(randevuListesi[hastaIndis].Hasta.TelefonNumarasi + randevuListesi[hastaIndis].Hasta.EkstraAciklama + randevuListesi[hastaIndis].Hasta.KanGrubu);
 
 		}
 
-
+		/// <summary>
+		/// raporlama formuna gecer.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btnGecmisTümTedaviler_Click(object sender, EventArgs e)
 		{
-			frmRapor frmRapor = new frmRapor(randevuListesi,doktorListesi);
+			frmRapor frmRapor = new frmRapor(randevuListesi, doktorListesi);
 			frmRapor.Show();
 
 		}
 
-		private bool Validasyon()
+		int hastaIndis = -1;
+		/// <summary>
+		/// hasta bilgileri ekraninda listelenen hastalardan, secilenin bilgilerini getirir
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void btnHastaGetir_Click(object sender, EventArgs e)
 		{
-			return true;
+			flplist.Enabled = true;
+			foreach (CheckBox item in flplist.Controls)
+			{
+				if (item.Checked)
+				{
+					foreach (Randevu item1 in randevuListesi)
+					{
+						txtHastaBilgileriHastaAdSoyad.Text = item1.Hasta.ToString();
+						mtxtHastaBilgileriKimlikNumarası.Text = item1.Hasta.KimlikNumarasi;
+						mtxtHastaBilgileriDogumTarihi.Text = item1.Hasta.DogumTarihi;
+						mtxtHastaBilgileriTelefonNo.Text = item1.Hasta.TelefonNumarasi;
+						txtHastaBilgileriEkstraBilgiler.Text = item1.Hasta.EkstraAciklama;
+						hastaIndis++;
+					}
+				}
+
+			}
 		}
+
+		#endregion
 
 		/// <summary>
-		/// yapılacak işlemler combobaxını doldurur.
+		/// tablar arasindaki her geciste o taba ait yüklenmesi gereken bilgileri doldurur.
 		/// </summary>
-		public void HastayaYapilacakIslemleriOlustur()
-		{
-			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Dolgu", IslemUcreti = 100 });
-			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Kanal Tedavisi", IslemUcreti = 500 });
-			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Beyazlatma", IslemUcreti = 100 });
-			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Taşı Temizliği", IslemUcreti = 100 });
-			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "İmplant", IslemUcreti = 100 });
-			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Teli", IslemUcreti = 100 });
-		}
-
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (tabControl1.SelectedIndex == 1)
@@ -210,9 +362,7 @@ namespace DisKilinigi.UI
 						lvHastaBilgileri.Items.Add(li);
 					}
 				}
-
 			}
-
 			if (tabControl1.SelectedIndex == 3)
 			{
 
@@ -228,119 +378,7 @@ namespace DisKilinigi.UI
 
 		}
 
-		private string DiziyiStringeCevir(string[] dizi)
-		{
-			string disler = "";
-			foreach (string item in dizi)
-			{
-				disler += item + " ";
-
-
-			}
-			return disler;
-		}
-
-		private void chboxTumunuSec_CheckStateChanged(object sender, EventArgs e)
-		{
-			if (chboxTumunuSec.Checked)
-			{
-				foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
-				{
-					item.Checked = true;
-				}
-			}
-			else
-			{
-				foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
-				{
-					item.Checked = false;
-				}
-			}
-
-		}
-
-		ListViewItem listedeSecilenIndis;
-		private void lvHastaBilgileri_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (lvHastaBilgileri.SelectedItems.Count > 0)
-			{
-				listedeSecilenIndis = lvHastaBilgileri.SelectedItems[0];
-				lblRandevuBİlgileri.Text = listedeSecilenIndis.Tag.ToString();
-				islemUcreti = double.Parse(listedeSecilenIndis.SubItems[6].Text);
-
-			}
-		}
-
-		int hastaIndis = -1;
-		private void btnHastaGetir_Click(object sender, EventArgs e)
-		{
-
-			flplist.Enabled = true;
-			foreach (CheckBox item in flplist.Controls)
-			{
-				if (item.Checked)
-				{
-					foreach (Randevu item1 in randevuListesi)
-					{
-						txtHastaBilgileriHastaAdSoyad.Text = item1.Hasta.ToString();
-						mtxtHastaBilgileriKimlikNumarası.Text = item1.Hasta.KimlikNumarasi;
-						mtxtHastaBilgileriDogumTarihi.Text = item1.Hasta.DogumTarihi;
-						mtxtHastaBilgileriTelefonNo.Text = item1.Hasta.TelefonNumarasi;
-						txtHastaBilgileriEkstraBilgiler.Text = item1.Hasta.EkstraAciklama;
-						hastaIndis++;
-					}
-
-
-				}
-
-			}
-		}
-
-		private void cmboxIlgilenecekDoktor_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (cmboxIlgilenecekDoktor.SelectedIndex == 0)
-			{
-				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\melike hoca.png");
-				
-
-			}
-			if (cmboxIlgilenecekDoktor.SelectedIndex == 1)
-			{
-				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\batu.png");
-				
-
-			}
-			if (cmboxIlgilenecekDoktor.SelectedIndex == 2)
-			{
-				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\berkay.png");
-				
-
-			}
-			if (cmboxIlgilenecekDoktor.SelectedIndex == 3)
-			{
-				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\ela.png");
-				
-
-			}
-			if (cmboxIlgilenecekDoktor.SelectedIndex == 4)
-			{
-				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\yekta.png");
-				
-
-			}
-			if (cmboxIlgilenecekDoktor.SelectedIndex == 5)
-			{
-				picbDoktorResmi.Image = Image.FromFile(@"..\..\Resources\zahide.png");
-				
-
-			}
-			
-		}
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-    }
+		
+	}
 
 }

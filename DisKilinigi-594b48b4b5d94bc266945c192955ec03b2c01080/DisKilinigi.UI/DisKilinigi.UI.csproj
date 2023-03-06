@@ -62,12 +62,6 @@
     <Compile Include="FrmGirisPenceresi.Designer.cs">
       <DependentUpon>FrmGirisPenceresi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmISlemGöreceDislerPenceresi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmISlemGöreceDislerPenceresi.Designer.cs">
-      <DependentUpon>FrmISlemGöreceDislerPenceresi.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmRaporPenceresi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,9 +75,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGirisPenceresi.resx">
       <DependentUpon>FrmGirisPenceresi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmISlemGöreceDislerPenceresi.resx">
-      <DependentUpon>FrmISlemGöreceDislerPenceresi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmRaporPenceresi.resx">
       <DependentUpon>FrmRaporPenceresi.cs</DependentUpon>
