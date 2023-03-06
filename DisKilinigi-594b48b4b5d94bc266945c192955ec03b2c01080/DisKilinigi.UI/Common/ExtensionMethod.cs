@@ -137,6 +137,8 @@ namespace DisKilinigi.UI.Common
 
 		}
 
+		//public static void Temizle()
+
 		/// <summary>
 		/// formun tüm componentlerini resetler.
 		/// </summary>

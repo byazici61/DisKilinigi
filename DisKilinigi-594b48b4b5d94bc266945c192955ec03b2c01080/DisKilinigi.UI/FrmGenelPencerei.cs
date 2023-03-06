@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using ComboBox = System.Windows.Forms.ComboBox;
 using TextBox = System.Windows.Forms.TextBox;
 
 namespace DisKilinigi.UI
@@ -77,14 +78,13 @@ namespace DisKilinigi.UI
 				{
 					if (item.RandevuDurumu)
 					{
-						flplist.Controls.Add(new CheckBox() { Text = item.Hasta.HastaAdSoyad, Tag = item });
+						flplist.Controls.Add(new RadioButton() { Text = item.Hasta.HastaAdSoyad, Tag = item });
 					}
 				}
 
 			}
 
 		}
-
 
 		#region Hasta İlk Kayıt Ekranı
 
@@ -164,6 +164,7 @@ namespace DisKilinigi.UI
 				});
 				MessageBox.Show("Randevu başarıyla oluşturuldu!");
 				islemYapilacakDisAdlari = "";
+				RandevuEkranFormuTemizle();
 			}
 			else
 			{
@@ -299,6 +300,18 @@ namespace DisKilinigi.UI
 			return disler;
 		}
 
+		void RandevuEkranFormuTemizle()
+		{
+			foreach (Control item in gbTedaviAtamasi.Controls)
+			{
+				if(item is ComboBox) item.Text = null;
+			}
+
+			foreach (CheckBox item in gbSikayetiOlanDisler.Controls)
+			{
+				item.Checked = false;
+			}
+		}
 
 		#endregion
 
@@ -383,7 +396,7 @@ namespace DisKilinigi.UI
 		private void btnHastaGetir_Click(object sender, EventArgs e)
 		{
 			flplist.Enabled = true;
-			foreach (CheckBox item in flplist.Controls)
+			foreach (RadioButton item in flplist.Controls)
 			{
 				if (item.Checked)
 				{
@@ -397,7 +410,6 @@ namespace DisKilinigi.UI
 						hastaIndis++;
 					}
 				}
-
 			}
 		}
 
