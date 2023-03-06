@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Doktor.cs" />
+    <Compile Include="Common\ExtensionMethod.cs" />
     <Compile Include="Common\Hasta.cs" />
     <Compile Include="Common\Islem.cs" />
     <Compile Include="Common\Randevu.cs" />

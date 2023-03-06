@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace DisKilinigi.UI
 {
@@ -30,6 +31,56 @@ namespace DisKilinigi.UI
 			pbRontgen.Visible = false;
 			DoktorlariOlustur();
 			HastayaYapilacakIslemleriOlustur();
+		}
+
+		/// <summary>
+		/// tablar arasindaki her geciste o taba ait yüklenmesi gereken bilgileri doldurur.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (tabControl1.SelectedIndex == 1)
+			{
+				gbTedaviAtamasi.Refresh();
+				gbTedaviAtamasi.Enabled = true;
+
+				cmboxHastaAdi.Items.AddRange(hastaListesi.ToArray());
+				cmboxIlgilenecekDoktor.Items.AddRange(doktorListesi.ToArray());
+			}
+			if (tabControl1.SelectedIndex == 2)
+			{
+				lvHastaBilgileri.Items.Clear();
+				foreach (Randevu item in randevuListesi)
+				{
+					if (item.RandevuDurumu)
+					{
+						ListViewItem li = new ListViewItem(item.Hasta.HastaAdSoyad, 0);
+						li.SubItems.Add(item.Hasta.KimlikNumarasi);
+						li.SubItems.Add(item.Hasta.DogumTarihi);
+						li.SubItems.Add(DiziyiStringeCevir(item.Disler));
+						li.SubItems.Add(item.Islem.ToString());
+						li.SubItems.Add(item.RandevuTarihi.ToString());
+						li.SubItems.Add(item.RandevuUcreti.ToString());
+
+						li.Tag = item;
+						lvHastaBilgileri.Items.Add(li);
+					}
+				}
+			}
+			if (tabControl1.SelectedIndex == 3)
+			{
+				flplist.Controls.Clear();
+				foreach (Randevu item in randevuListesi)
+				{
+					if (item.RandevuDurumu)
+					{
+						flplist.Controls.Add(new CheckBox() { Text = item.Hasta.HastaAdSoyad, Tag = item });
+					}
+				}
+
+			}
+
 		}
 
 
@@ -55,6 +106,7 @@ namespace DisKilinigi.UI
 						EkstraAciklama = txtHastaSikayet.Text,
 						KanGrubu = ""
 					});
+				MessageBox.Show("Hasta kaydı oluşturuldu. Röntgen bilgisi doktora iletildi!");
 			}
 			else
 			{
@@ -69,8 +121,10 @@ namespace DisKilinigi.UI
 		/// <param name="e"></param>
 		private void btnYeniHastaKayit_Click(object sender, EventArgs e)
 		{
-			txtHastanaIlkMuayeneAdSoyad.Text = mtxtHastanaIlkMuayeneDoğumTarihi.Text =
-				mtxtHastanaIlkMuayeneTelefonNumarasi.Text = mtxtHastaKayitKimlikNo.Text = txtHastaSikayet.Text = null;
+			foreach (Control item in gbHastaKayitHastaBilgileri.Controls)
+			{
+				if (item is TextBox || item is MaskedTextBox) item.Text = null;
+			}
 			pbRontgen.Visible = false;
 		}
 
@@ -210,6 +264,11 @@ namespace DisKilinigi.UI
 			cmboxYapılacakIslem.Items.Add(new Islem() { IslemAdi = "Diş Teli", IslemUcreti = 100 });
 		}
 
+		/// <summary>
+		/// ?TODO
+		/// </summary>
+		/// <param name="dizi"></param>
+		/// <returns></returns>
 		private string DiziyiStringeCevir(string[] dizi)
 		{
 			string disler = "";
@@ -249,9 +308,6 @@ namespace DisKilinigi.UI
 			}
 		}
 
-
-
-
 		#endregion
 
 		#region Rapor Ekranı
@@ -266,7 +322,6 @@ namespace DisKilinigi.UI
 				islemUcreti = double.Parse(listedeSecilenIndis.SubItems[6].Text);
 			}
 		}
-
 
 		#endregion
 
@@ -328,57 +383,9 @@ namespace DisKilinigi.UI
 
 		#endregion
 
-		/// <summary>
-		/// tablar arasindaki her geciste o taba ait yüklenmesi gereken bilgileri doldurur.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (tabControl1.SelectedIndex == 1)
-			{
-				gbTedaviAtamasi.Refresh();
-				gbTedaviAtamasi.Enabled = true;
-
-				cmboxHastaAdi.Items.AddRange(hastaListesi.ToArray());
-				cmboxIlgilenecekDoktor.Items.AddRange(doktorListesi.ToArray());
-			}
-			if (tabControl1.SelectedIndex == 2)
-			{
-				lvHastaBilgileri.Items.Clear();
-				foreach (Randevu item in randevuListesi)
-				{
-					if (item.RandevuDurumu)
-					{
-						ListViewItem li = new ListViewItem(item.Hasta.HastaAdSoyad, 0);
-						li.SubItems.Add(item.Hasta.KimlikNumarasi);
-						li.SubItems.Add(item.Hasta.DogumTarihi);
-						li.SubItems.Add(DiziyiStringeCevir(item.Disler));
-						li.SubItems.Add(item.Islem.ToString());
-						li.SubItems.Add(item.RandevuTarihi.ToString());
-						li.SubItems.Add(item.RandevuUcreti.ToString());
-
-						li.Tag = item;
-						lvHastaBilgileri.Items.Add(li);
-					}
-				}
-			}
-			if (tabControl1.SelectedIndex == 3)
-			{
-
-				foreach (Randevu item in randevuListesi)
-				{
-					if (item.RandevuDurumu)
-					{
-						flplist.Controls.Add(new CheckBox() { Text = item.Hasta.HastaAdSoyad, Tag = item });
-					}
-				}
-
-			}
-
-		}
 
 		
+
 	}
 
 }

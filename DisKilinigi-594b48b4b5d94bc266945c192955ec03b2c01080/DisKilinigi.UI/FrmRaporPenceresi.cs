@@ -37,50 +37,52 @@ namespace DisKilinigi.UI
             cmbDoktorlar.Items.AddRange(doktorListesi.ToArray());   
         }
 
-
+        /// <summary>
+        /// textboxa girilen degere göre listeleme yapar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdaGoreFiltrele_Click(object sender, EventArgs e)
         {
             string aranilanKelime = txtAranacakAd.Text;
-
             lvTumHastalar.Items.Clear();
-
             foreach (Randevu item in randevuListesi)
             {
-
-                if (item.Hasta.HastaAdSoyad.ToLower().Contains(aranilanKelime.ToLower()))
+	            if (item.Hasta.HastaAdSoyad.ToLower().Contains(aranilanKelime.ToLower()))
                 {
                     TabloyuDoldur(item);
                 }
-
             }
-
         }
 
+        /// <summary>
+        /// secilen doktora göre filtreleyerek hasta listesini getirir.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDoktoraGoreFiltrele_Click(object sender, EventArgs e)
         {
             lvTumHastalar.Items.Clear();
-
             foreach (Randevu item in randevuListesi)
             {
                 if (cmbDoktorlar.SelectedItem.ToString()==item.Doktor.DoktorAdSoyad)
                 {
                     TabloyuDoldur(item);
                 }
-
-                
-
             }
         }
 
+        /// <summary>
+        /// tedavi durumuna göre hastalari filtreleyerek getirir. bitti ya da devam ediyor seklinde iki durum var.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTedaviDurumunaGöreFiltrele_Click(object sender, EventArgs e)
         {
             lvTumHastalar.Items.Clear();
-
             foreach (Randevu item in randevuListesi)
             {
-                
-
-                if (cmbTedaviDurumu.SelectedIndex == 0 && item.RandevuDurumu == true)
+	            if (cmbTedaviDurumu.SelectedIndex == 0 && item.RandevuDurumu == true)
                 {
                     TabloyuDoldur(item);
                 }
@@ -89,32 +91,31 @@ namespace DisKilinigi.UI
                     TabloyuDoldur(item);
 
                 }
-
             }
-
-
-
-
         }
 
-
-
-
+        /// <summary>
+        /// girilen iki tarih araligindaki randevularin listesini getirir.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnTariheGoreFiltrele_Click(object sender, EventArgs e)
         {
             lvTumHastalar.Items.Clear();
-
             foreach (Randevu item in randevuListesi)
             {
-
-                if (dtp1.Value <= item.RandevuTarihi && dtp2.Value >= item.RandevuTarihi)
+	            if (dtp1.Value <= item.RandevuTarihi && dtp2.Value >= item.RandevuTarihi)
                 {
                     TabloyuDoldur(item);
                 }
             }
-
         }
 
+        /// <summary>
+        ///  listelenen bilgilerin filtesini kaldirir. tüm bilgiler listelenir.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFiltelemeyiSifirla_Click(object sender, EventArgs e)
         {
             lvTumHastalar.Items.Clear();
@@ -122,63 +123,8 @@ namespace DisKilinigi.UI
             {
                 TabloyuDoldur(item);
             }
-
+            FormuTemizle();
         }
-
-
-
-
-        //private void btnAra_Click(object sender, EventArgs e)
-        //{
-        //    string aranilanKelime = txtAranacakKelime.Text;
-
-        //    lvTumHastalar.Items.Clear();
-
-        //    foreach (Kullanım item in kullanımlar)
-        //    {
-
-        //        if (ExtentionMetods.SayiVarMi(aranilanKelime) && item.Rezervasyon.Musteri.AdSoyad.ToLower().Contains(aranilanKelime.ToLower()))
-        //        {
-        //            TabloyuDoldurma(item);
-        //        }
-
-        //    }
-        //}
-
-        ///// <summary>
-        ///// Tarihe göre seçilen aralıktaki otelde kalmış kişileri getirir.
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void btnTarihFitrele_Click(object sender, EventArgs e)
-        //{
-
-        //    lvTumHastalar.Items.Clear();
-
-        //    foreach (Kullanım item in kullanımlar)
-        //    {
-
-        //        if (dtpBirinciTrh.Value <= item.Rezervasyon.GirisTarihi && dtpİkinciTrh.Value >= item.CikisTarihi)
-        //        {
-        //            TabloyuDoldurma(item);
-        //        }
-        //    }
-        //}
-
-        ///// <summary>
-        ///// Tüm müşteriler listesini getiri.
-        ///// </summary>
-        ///// <param name="sender"></param>
-        ///// <param name="e"></param>
-        //private void btnSifirla_Click(object sender, EventArgs e)
-        //{
-        //    lvTumHastalar.Items.Clear();
-        //    foreach (Kullanım item in kullanımlar)
-        //    {
-        //        TabloyuDoldurma(item);
-
-        //    }
-        //}
 
         /// <summary>
         /// tabloyu dolduran fonksiyon
@@ -199,11 +145,15 @@ namespace DisKilinigi.UI
             h1.SubItems.Add(item.RandevuUcreti.ToString());
 
             lvTumHastalar.Items.AddRange(new ListViewItem[] { h1 });
-
-
-
         }
 
-
+        /// <summary>
+        /// filtreleme sifirlandiginda forma girilen textbox ve mtextboxlari temizler.
+        /// </summary>
+        void FormuTemizle()
+        {
+	        txtAranacakAd.Text = cmbDoktorlar.Text = cmbDoktorlar.Text = null;
+	        dtp1.Value = dtp2.Value = DateTime.Today;
+        }
     }
 }

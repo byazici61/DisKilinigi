@@ -110,6 +110,7 @@ namespace DisKilinigi.UI
 			this.cboxDis17 = new System.Windows.Forms.CheckBox();
 			this.cboxDis1 = new System.Windows.Forms.CheckBox();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
+			this.btnYeniHastaKayit = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.pbRontgen = new System.Windows.Forms.PictureBox();
 			this.btnRontgenRandevuOlustur = new System.Windows.Forms.Button();
@@ -128,7 +129,6 @@ namespace DisKilinigi.UI
 			this.txtHastaSikayet = new System.Windows.Forms.TextBox();
 			this.txtHastanaIlkMuayeneAdSoyad = new System.Windows.Forms.TextBox();
 			this.tabControl1 = new System.Windows.Forms.TabControl();
-			this.btnYeniHastaKayit = new System.Windows.Forms.Button();
 			this.tabPage1.SuspendLayout();
 			this.gbHastaBilgileriHastaBilgileri.SuspendLayout();
 			this.tabPage3.SuspendLayout();
@@ -387,9 +387,9 @@ namespace DisKilinigi.UI
 			this.tabPage3.Controls.Add(this.lblRandevuBİlgileri);
 			this.tabPage3.Controls.Add(this.lvHastaBilgileri);
 			this.tabPage3.Location = new System.Drawing.Point(4, 25);
-			this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
+			this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.tabPage3.Name = "tabPage3";
-			this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
+			this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.tabPage3.Size = new System.Drawing.Size(958, 494);
 			this.tabPage3.TabIndex = 2;
 			this.tabPage3.Text = "Ödeme Alma";
@@ -397,6 +397,7 @@ namespace DisKilinigi.UI
 			// 
 			// btnOdemeAl
 			// 
+			this.btnOdemeAl.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.btnOdemeAl.Location = new System.Drawing.Point(836, 401);
 			this.btnOdemeAl.Name = "btnOdemeAl";
 			this.btnOdemeAl.Size = new System.Drawing.Size(114, 52);
@@ -473,9 +474,9 @@ namespace DisKilinigi.UI
 			this.tabPage2.Controls.Add(this.gbTedaviAtamasi);
 			this.tabPage2.Controls.Add(this.gbSikayetiOlanDisler);
 			this.tabPage2.Location = new System.Drawing.Point(4, 25);
-			this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+			this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.tabPage2.Name = "tabPage2";
-			this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+			this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.tabPage2.Size = new System.Drawing.Size(958, 494);
 			this.tabPage2.TabIndex = 1;
 			this.tabPage2.Text = "Tedavi Planlaması";
@@ -943,11 +944,22 @@ namespace DisKilinigi.UI
 			this.tabPage4.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
 			this.tabPage4.Location = new System.Drawing.Point(4, 25);
 			this.tabPage4.Name = "tabPage4";
-			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
 			this.tabPage4.Size = new System.Drawing.Size(958, 494);
 			this.tabPage4.TabIndex = 4;
 			this.tabPage4.Text = "Hasta İlk Muayene";
 			this.tabPage4.UseVisualStyleBackColor = true;
+			// 
+			// btnYeniHastaKayit
+			// 
+			this.btnYeniHastaKayit.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.btnYeniHastaKayit.Location = new System.Drawing.Point(404, 351);
+			this.btnYeniHastaKayit.Name = "btnYeniHastaKayit";
+			this.btnYeniHastaKayit.Size = new System.Drawing.Size(154, 41);
+			this.btnYeniHastaKayit.TabIndex = 7;
+			this.btnYeniHastaKayit.Text = "Yeni Hasta Kaydı";
+			this.btnYeniHastaKayit.UseVisualStyleBackColor = true;
+			this.btnYeniHastaKayit.Click += new System.EventHandler(this.btnYeniHastaKayit_Click);
 			// 
 			// groupBox1
 			// 
@@ -1129,23 +1141,12 @@ namespace DisKilinigi.UI
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tabControl1.Location = new System.Drawing.Point(0, 0);
-			this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+			this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.tabControl1.Name = "tabControl1";
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.Size = new System.Drawing.Size(966, 523);
 			this.tabControl1.TabIndex = 0;
 			this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
-			// 
-			// btnYeniHastaKayit
-			// 
-			this.btnYeniHastaKayit.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.btnYeniHastaKayit.Location = new System.Drawing.Point(404, 351);
-			this.btnYeniHastaKayit.Name = "btnYeniHastaKayit";
-			this.btnYeniHastaKayit.Size = new System.Drawing.Size(154, 41);
-			this.btnYeniHastaKayit.TabIndex = 7;
-			this.btnYeniHastaKayit.Text = "Yeni Hasta Kaydı";
-			this.btnYeniHastaKayit.UseVisualStyleBackColor = true;
-			this.btnYeniHastaKayit.Click += new System.EventHandler(this.btnYeniHastaKayit_Click);
 			// 
 			// FrmGenelPencerei
 			// 
@@ -1154,9 +1155,9 @@ namespace DisKilinigi.UI
 			this.ClientSize = new System.Drawing.Size(966, 523);
 			this.Controls.Add(this.tabControl1);
 			this.Font = new System.Drawing.Font("Microsoft New Tai Lue", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Margin = new System.Windows.Forms.Padding(4);
+			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
 			this.Name = "FrmGenelPencerei";
-			this.Text = "FrmGirisEkrani";
+			this.Text = "HASTA İŞLEMLERİ";
 			this.Load += new System.EventHandler(this.FrmGenelPencerei_Load);
 			this.tabPage1.ResumeLayout(false);
 			this.gbHastaBilgileriHastaBilgileri.ResumeLayout(false);
