@@ -35,7 +35,8 @@ namespace DisKilinigi.UI
 			// 
 			// btnGiris
 			// 
-			this.btnGiris.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.btnGiris.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.btnGiris.ForeColor = System.Drawing.Color.SaddleBrown;
 			this.btnGiris.Location = new System.Drawing.Point(247, 414);
 			this.btnGiris.Name = "btnGiris";
 			this.btnGiris.Size = new System.Drawing.Size(206, 33);
@@ -47,8 +48,9 @@ namespace DisKilinigi.UI
 			// label1
 			// 
 			this.label1.BackColor = System.Drawing.Color.Transparent;
-			this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-			this.label1.Location = new System.Drawing.Point(93, 195);
+			this.label1.Font = new System.Drawing.Font("Sylfaen", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+			this.label1.ForeColor = System.Drawing.Color.SaddleBrown;
+			this.label1.Location = new System.Drawing.Point(94, 180);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(504, 58);
 			this.label1.TabIndex = 1;
@@ -60,7 +62,7 @@ namespace DisKilinigi.UI
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Info;
-			this.BackgroundImage = global::DisKilinigi.UI.Properties.Resources.dental;
+			this.BackgroundImage = global::DisKilinigi.UI.Properties.Resources.EMREIPOR_EFSANE;
 			this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
 			this.ClientSize = new System.Drawing.Size(698, 483);
 			this.Controls.Add(this.label1);

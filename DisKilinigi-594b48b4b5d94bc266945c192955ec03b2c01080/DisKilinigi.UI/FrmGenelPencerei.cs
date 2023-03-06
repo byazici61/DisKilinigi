@@ -19,7 +19,7 @@ namespace DisKilinigi.UI
 		List<Hasta> hastaListesi = new List<Hasta>();
 		List<Doktor> doktorListesi = new List<Doktor>();
 		List<Randevu> randevuListesi = new List<Randevu>();
-		string islemYapilacakDisAdlari = "";
+		private string islemYapilacakDisAdlari = "";
 		double islemUcreti;
 
 		public FrmGenelPencerei()
@@ -42,6 +42,8 @@ namespace DisKilinigi.UI
 		{
 			if (tabControl1.SelectedIndex == 1)
 			{
+				cmboxHastaAdi.Items.Clear();
+				cmboxIlgilenecekDoktor.Items.Clear();
 				gbTedaviAtamasi.Refresh();
 				gbTedaviAtamasi.Enabled = true;
 
@@ -93,9 +95,10 @@ namespace DisKilinigi.UI
 		/// <param name="e"></param>
 		private void btnRontgenRandevuOlustur_Click(object sender, EventArgs e)
 		{
-			pbRontgen.Visible = true;
-			if (Validasyon())
+			
+			if (HastaIlkKayitValidasyon())
 			{
+				pbRontgen.Visible = true;
 				hastaListesi.Add(
 					new Hasta
 					{
@@ -110,7 +113,7 @@ namespace DisKilinigi.UI
 			}
 			else
 			{
-				MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz");
+				MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz ve Doğru Formatta Giriniz");
 			}
 		}
 
@@ -147,20 +150,26 @@ namespace DisKilinigi.UI
 				}
 			}
 			string[] dizi = islemYapilacakDisAdlari.Split(' ');
-			islemYapilacakDisAdlari = "";
-
-			randevuListesi.Add(new Randevu()
+			if (islemYapilacakDisAdlari != "" && RandevuOlusturmaValidasyon())
 			{
+				randevuListesi.Add(new Randevu()
+				{
 
-				Hasta = cmboxHastaAdi.SelectedItem as Hasta,
-				Doktor = cmboxIlgilenecekDoktor.SelectedItem as Doktor,
-				RandevuTarihi = dtpRandevuTarihi.Value,
-				Islem = cmboxYapılacakIslem.SelectedItem as Islem,
-				RandevuDurumu = true,
-				Disler = dizi,
-			});
-			MessageBox.Show("Randevu başarıyla oluşturuldu!");
-
+					Hasta = cmboxHastaAdi.SelectedItem as Hasta,
+					Doktor = cmboxIlgilenecekDoktor.SelectedItem as Doktor,
+					RandevuTarihi = dtpRandevuTarihi.Value,
+					Islem = cmboxYapılacakIslem.SelectedItem as Islem,
+					RandevuDurumu = true,
+					Disler = dizi,
+				});
+				MessageBox.Show("Randevu başarıyla oluşturuldu!");
+				islemYapilacakDisAdlari = "";
+			}
+			else
+			{
+				MessageBox.Show("Lütfen tüm bilgileri eksiksiz girdiğinizden emin olunuz!");
+			}
+			
 		}
 
 		/// <summary>
@@ -246,9 +255,20 @@ namespace DisKilinigi.UI
 		/// textboxlarin ve mtextboxlarin girilen degerlerininin uygunlugunu kontrol eder.
 		/// </summary>
 		/// <returns></returns>
-		private bool Validasyon()
+		private bool HastaIlkKayitValidasyon()
 		{
-			return true;
+			return txtHastanaIlkMuayeneAdSoyad.Text.StringDegerAdSoyadKontrolu()
+			       && ExtensionMethod.StringDegerinNullVeyaBoslukOlupOlmamaDurumu(txtHastaSikayet.Text,
+				      mtxtHastanaIlkMuayeneDoğumTarihi.Text,
+				       mtxtHastaKayitKimlikNo.Text, mtxtHastanaIlkMuayeneTelefonNumarasi.Text)
+			       && mtxtHastaKayitKimlikNo.Text.TCKimlikNoDogruFormattaMi()
+			       && mtxtHastanaIlkMuayeneTelefonNumarasi.Text.TelefonNoFormatKontrolu();
+		}
+
+		public bool RandevuOlusturmaValidasyon()
+		{
+			return ExtensionMethod.NullValidasyon(cmboxIlgilenecekDoktor.Text,
+				cmboxYapılacakIslem.Text) && cmboxHastaAdi.Text.StringDegerAdSoyadKontrolu();
 		}
 
 		/// <summary>
@@ -291,6 +311,12 @@ namespace DisKilinigi.UI
 		/// <param name="e"></param>
 		private void btnOdemeAl_Click(object sender, EventArgs e)
 		{
+			if (listedeSecilenIndis == null)
+			{
+				MessageBox.Show("Ödeme yapmak için hasta seçmediniz!");
+				return;
+			}
+
 			DialogResult dg = MessageBox.Show($"{islemUcreti} tutarındaki ödeme alınacak, bu işleme devam etmek istediğinize emin misiniz", "", MessageBoxButtons.YesNoCancel);
 			if (dg == DialogResult.Yes)
 			{
@@ -382,9 +408,6 @@ namespace DisKilinigi.UI
 		}
 
 		#endregion
-
-
-		
 
 	}
 

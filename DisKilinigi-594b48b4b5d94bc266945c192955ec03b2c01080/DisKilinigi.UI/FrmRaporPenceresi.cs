@@ -46,6 +46,7 @@ namespace DisKilinigi.UI
         {
             string aranilanKelime = txtAranacakAd.Text;
             lvTumHastalar.Items.Clear();
+
             foreach (Randevu item in randevuListesi)
             {
 	            if (item.Hasta.HastaAdSoyad.ToLower().Contains(aranilanKelime.ToLower()))
@@ -155,5 +156,6 @@ namespace DisKilinigi.UI
 	        txtAranacakAd.Text = cmbDoktorlar.Text = cmbDoktorlar.Text = null;
 	        dtp1.Value = dtp2.Value = DateTime.Today;
         }
+
     }
 }

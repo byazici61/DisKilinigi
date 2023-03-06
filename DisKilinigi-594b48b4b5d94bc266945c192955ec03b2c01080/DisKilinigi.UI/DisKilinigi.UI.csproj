@@ -115,6 +115,7 @@
     <Content Include="Resources\batu.png" />
     <Content Include="Resources\berkay.png" />
     <Content Include="Resources\ela.png" />
+    <None Include="Resources\EMREIPOR-EFSANE.jpg" />
     <Content Include="Resources\melike hoca.png" />
     <Content Include="Resources\yekta.png" />
     <Content Include="Resources\zahide.png" />

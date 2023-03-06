@@ -19,7 +19,6 @@ namespace DisKilinigi.UI.Common
 		/// <returns></returns>
 		public static bool StringDegerAdSoyadKontrolu(this string txtbox)
 		{
-
 			for (int i = 0; i < txtbox.Length; i++)
 			{
 				if (txtbox.Contains(" ") // Ad en az iki kelimeden oluştuğu için boşluk içermek zorunda ama bu boşluklar başta ve sonda olamaz.
@@ -29,7 +28,6 @@ namespace DisKilinigi.UI.Common
 				{
 					return true;
 				}
-
 			}
 			return false;
 
@@ -63,6 +61,20 @@ namespace DisKilinigi.UI.Common
 			{
 				//boş ise girer
 				if (item.Any(char.IsWhiteSpace) || string.IsNullOrWhiteSpace(item) || item.Length < 2)
+				{
+					return false;
+				}
+			}
+			//boş değil
+			return true;
+		}
+
+		public static bool NullValidasyon(params string[] texts)
+		{
+			foreach (var item in texts)
+			{
+				//boş ise girer
+				if (string.IsNullOrWhiteSpace(item) || item.Length < 2)
 				{
 					return false;
 				}
