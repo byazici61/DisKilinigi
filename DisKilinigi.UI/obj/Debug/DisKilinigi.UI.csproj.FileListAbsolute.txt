@@ -1,0 +1,39 @@
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.AssemblyReference.cache
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.FrmGenelPencerei.resources
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.FrmGirisPenceresi.resources
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.FrmISlemGöreceDislerPenceresi.resources
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.GenerateResource.cache
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.CoreCompileInputs.cache
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.exe.config
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.exe
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.pdb
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.exe
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.pdb
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.Properties.Resources.resources
+C:\Users\batuh\Desktop\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.frmRapor.resources
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.AssemblyReference.cache
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.SuggestedBindingRedirects.cache
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.exe
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.pdb
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.exe.config
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.exe
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.pdb
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.FrmGenelPencerei.resources
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.FrmGirisPenceresi.resources
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.frmRapor.resources
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.Properties.Resources.resources
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.GenerateResource.cache
+C:\Users\Asus\Source\Repos\DisKilinigi\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.CoreCompileInputs.cache
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.exe.config
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.exe
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\bin\Debug\DisKilinigi.UI.pdb
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.AssemblyReference.cache
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.SuggestedBindingRedirects.cache
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.FrmGenelPencerei.resources
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.FrmGirisPenceresi.resources
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.frmRapor.resources
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.Properties.Resources.resources
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.GenerateResource.cache
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.csproj.CoreCompileInputs.cache
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.exe
+C:\Users\Berkay\source\repos\Yeni klasör (2)\DisKilinigi-594b48b4b5d94bc266945c192955ec03b2c01080\DisKilinigi.UI\obj\Debug\DisKilinigi.UI.pdb
